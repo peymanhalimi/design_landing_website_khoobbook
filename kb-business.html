@@ -1,0 +1,313 @@
+<div class="kb-business-scope" dir="rtl" lang="fa">
+<style>
+.kb-business-scope {
+  --ink: #121820;
+  --ink-soft: #3d4a5c;
+  --muted: #7a8494;
+  --bg: #f4f6f8;
+  --white: #fff;
+  --accent: #b3122e;
+  --accent-dark: #7c0c20;
+  --navy: #162033;
+  --line: #e4e8ee;
+  --ease: cubic-bezier(.22,1,.36,1);
+  font-family: inherit;
+  background: var(--bg);
+  color: var(--ink);
+  overflow-x: hidden;
+  line-height: 1.7;
+}
+
+.kb-business-scope *,
+.kb-business-scope *::before,
+.kb-business-scope *::after { box-sizing: border-box; }
+
+.kb-business-scope img { max-width: 100%; display: block; }
+.kb-business-scope a { text-decoration: none; color: inherit; }
+.kb-business-scope ul { margin: 0; padding: 0; list-style: none; }
+.kb-business-scope button { font-family: inherit; cursor: pointer; }
+
+.kb-business-scope .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+.kb-business-scope .hero {
+  position: relative; min-height: 100vh; min-height: 100dvh;
+  display: flex; align-items: center; overflow: hidden;
+  background:
+    radial-gradient(90% 80% at 80% 10%, rgba(179,18,46,.35) 0%, transparent 55%),
+    radial-gradient(70% 60% at 10% 80%, rgba(62,90,130,.35) 0%, transparent 50%),
+    linear-gradient(160deg, #0e1522 0%, #162033 45%, #1a1520 100%);
+  color: #fff;
+}
+.kb-business-scope .hero-grid {
+  position: absolute; inset: 0; opacity: .12; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse at 50% 40%, #000 20%, transparent 75%);
+  animation: kbBizGridDrift 40s linear infinite;
+}
+@keyframes kbBizGridDrift {
+  from { transform: translateY(0); }
+  to { transform: translateY(64px); }
+}
+.kb-business-scope .hero-orb {
+  position: absolute; width: 520px; height: 520px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(179,18,46,.28), transparent 70%);
+  top: -120px; left: -80px; filter: blur(20px); pointer-events: none;
+  animation: kbBizOrbPulse 8s ease-in-out infinite;
+}
+@keyframes kbBizOrbPulse {
+  0%, 100% { opacity: .7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+.kb-business-scope .hero-inner { position: relative; z-index: 2; padding: 90px 0; max-width: 720px; }
+.kb-business-scope .hero-brand {
+  display: inline-block; font-size: clamp(42px, 7vw, 72px); font-weight: 800;
+  line-height: 1.15; margin-bottom: 18px;
+  background: linear-gradient(135deg, #fff 40%, #ffb0bc);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.kb-business-scope .hero h1 {
+  font-size: clamp(22px, 3.2vw, 32px); font-weight: 700;
+  line-height: 1.55; margin-bottom: 18px; color: rgba(255,255,255,.92);
+  max-width: 560px;
+}
+.kb-business-scope .hero p {
+  font-size: 16.5px; color: rgba(255,255,255,.62); line-height: 1.95;
+  max-width: 520px; margin-bottom: 34px;
+}
+.kb-business-scope .btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 28px; border-radius: 14px; font-weight: 700; font-size: 15px;
+  border: none; transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+}
+.kb-business-scope .btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: #fff; box-shadow: 0 14px 32px rgba(179,18,46,.35);
+}
+.kb-business-scope .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 20px 40px rgba(179,18,46,.45); }
+
+.kb-business-scope .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+.kb-business-scope .reveal.in { opacity: 1; transform: none; }
+.kb-business-scope .reveal.d1 { transition-delay: .08s; }
+.kb-business-scope .reveal.d2 { transition-delay: .16s; }
+.kb-business-scope .reveal.d3 { transition-delay: .24s; }
+@media (prefers-reduced-motion: reduce) {
+  .kb-business-scope .reveal { opacity: 1; transform: none; }
+  .kb-business-scope .hero-grid,
+  .kb-business-scope .hero-orb { animation: none; }
+}
+
+.kb-business-scope .section { padding: 90px 0; }
+.kb-business-scope .eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #fbe7ea; color: var(--accent); font-weight: 700; font-size: 13px;
+  padding: 7px 16px; border-radius: 999px;
+}
+.kb-business-scope .eyebrow::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+.kb-business-scope .head { text-align: center; max-width: 600px; margin: 0 auto 48px; }
+.kb-business-scope .head h2 { font-size: clamp(26px, 3.4vw, 38px); font-weight: 800; line-height: 1.35; margin: 16px 0 12px; }
+.kb-business-scope .head p { color: var(--ink-soft); font-size: 16px; line-height: 1.9; margin: 0; }
+
+.kb-business-scope .path { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.kb-business-scope .path-item {
+  background: var(--white); border: 1px solid var(--line);
+  border-radius: 20px; padding: 28px 24px;
+  transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+}
+.kb-business-scope .path-item:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(18,24,32,.08); }
+.kb-business-scope .path-num {
+  font-size: 13px; font-weight: 800; color: var(--accent);
+  background: #fbe7ea; display: inline-block; padding: 5px 12px; border-radius: 999px; margin-bottom: 16px;
+}
+.kb-business-scope .path-item h3 { font-size: 17px; font-weight: 700; margin: 0 0 8px; }
+.kb-business-scope .path-item p { font-size: 14px; color: var(--ink-soft); line-height: 1.85; margin: 0; }
+
+.kb-business-scope .outcomes {
+  background: var(--navy); color: #fff; border-radius: 28px; padding: 56px 48px;
+  display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center;
+  position: relative; overflow: hidden;
+}
+.kb-business-scope .outcomes::before {
+  content: ''; position: absolute; width: 280px; height: 280px; border-radius: 50%;
+  background: rgba(179,18,46,.25); top: -80px; left: -40px; filter: blur(40px);
+}
+.kb-business-scope .outcomes h2 { font-size: clamp(24px, 3vw, 34px); font-weight: 800; line-height: 1.4; margin: 14px 0 16px; position: relative; }
+.kb-business-scope .outcomes > div:first-child p { color: rgba(255,255,255,.62); font-size: 15px; line-height: 1.9; position: relative; margin: 0; }
+.kb-business-scope .outcome-list { display: flex; flex-direction: column; gap: 16px; position: relative; }
+.kb-business-scope .outcome-list li {
+  display: flex; gap: 14px; align-items: flex-start;
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08);
+  border-radius: 14px; padding: 16px 18px;
+}
+.kb-business-scope .outcome-list strong { display: block; font-size: 15px; margin-bottom: 4px; }
+.kb-business-scope .outcome-list span { font-size: 13px; color: rgba(255,255,255,.55); line-height: 1.7; }
+.kb-business-scope .tick {
+  width: 28px; height: 28px; border-radius: 8px; flex-shrink: 0;
+  background: rgba(179,18,46,.35); color: #ff8a9a;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.kb-business-scope .offer-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.kb-business-scope .offer {
+  padding: 32px 28px; border-radius: 20px; background: var(--white);
+  border: 1px solid var(--line);
+}
+.kb-business-scope .offer h3 { font-size: 18px; font-weight: 700; margin: 0 0 10px; }
+.kb-business-scope .offer p { font-size: 14.5px; color: var(--ink-soft); line-height: 1.85; margin: 0; }
+
+.kb-business-scope .cta {
+  background: linear-gradient(145deg, #162033, #1a1520);
+  border-radius: 28px; padding: 56px 48px; text-align: center; color: #fff;
+  position: relative; overflow: hidden;
+}
+.kb-business-scope .cta::after {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(50% 60% at 50% 0%, rgba(179,18,46,.35), transparent 70%);
+  pointer-events: none;
+}
+.kb-business-scope .cta > * { position: relative; z-index: 1; }
+.kb-business-scope .cta h2 { font-size: clamp(24px, 3vw, 34px); font-weight: 800; margin: 14px 0 12px; }
+.kb-business-scope .cta p { color: rgba(255,255,255,.6); max-width: 480px; margin: 0 auto 28px; font-size: 15.5px; line-height: 1.9; }
+
+@media (max-width: 900px) {
+  .kb-business-scope .path { grid-template-columns: 1fr; }
+  .kb-business-scope .outcomes { grid-template-columns: 1fr; padding: 40px 28px; }
+  .kb-business-scope .offer-grid { grid-template-columns: 1fr; }
+  .kb-business-scope .cta { padding: 44px 28px; }
+}
+</style>
+
+<section class="hero">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-orb" aria-hidden="true"></div>
+  <div class="wrap hero-inner">
+    <div class="hero-brand reveal">خوب‌بوک بیزینس</div>
+    <h1 class="reveal d1">توسعه منابع انسانی سازمان شما، مبتنی بر کتاب</h1>
+    <p class="reveal d2">با تحلیل چالش‌های تیمی و عارضه‌یابی دقیق، راهکارهای عملیاتی کتاب‌محور طراحی می‌کنیم و تا رسیدن به نتیجه ملموس همراه سازمان شما می‌مانیم.</p>
+    <a href="#kb-biz-cta" class="btn btn-primary reveal d3">
+      درخواست مشاوره سازمانی
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eyebrow">مسیر همکاری</div>
+      <h2>از شناخت سازمان تا نتیجه قابل‌اندازه‌گیری</h2>
+      <p>یک مسیر شفاف و تخصصی برای تبدیل کتاب به ابزار رشد تیم و فرهنگ سازمان.</p>
+    </div>
+    <div class="path">
+      <div class="path-item reveal">
+        <span class="path-num">۰۱</span>
+        <h3>می‌شناسیم</h3>
+        <p>ساختار مجموعه، نیازها و چالش‌های منابع انسانی و تیم‌تان را با بررسی دقیق شناسایی می‌کنیم.</p>
+      </div>
+      <div class="path-item reveal d1">
+        <span class="path-num">۰۲</span>
+        <h3>طراحی و اجرا می‌کنیم</h3>
+        <p>از میان برترین عناوین تخصصی کسب‌وکار، راهکارها و خدمات متناسب با سازمان شما را گزینش و پیاده‌سازی می‌کنیم.</p>
+      </div>
+      <div class="path-item reveal d2">
+        <span class="path-num">۰۳</span>
+        <h3>همراه می‌مانیم</h3>
+        <p>از ارزیابی اثربخشی برنامه‌ها تا استمرار مسیر رشد و یادگیری فردی و تیمی، در کنار شما هستیم.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="outcomes reveal">
+      <div>
+        <div class="eyebrow" style="background:rgba(255,255,255,.1);color:#ff8a9a">چرا بیزینس؟</div>
+        <h2>کتابخانه سازمانی فقط قفسه نیست؛ موتور یادگیری تیم است</h2>
+        <p>خوب‌بوک بیزینس برای سازمان‌هایی طراحی شده که می‌خواهند یادگیری مستمر، هم‌زبانی تیمی و توسعه مهارت‌های مدیریتی را به بخشی از فرهنگ روزمره تبدیل کنند.</p>
+      </div>
+      <ul class="outcome-list">
+        <li>
+          <span class="tick"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div><strong>عارضه‌یابی تیمی</strong><span>شناخت دقیق گلوگاه‌های همکاری، انگیزه و مهارت</span></div>
+        </li>
+        <li>
+          <span class="tick"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div><strong>راهکار مبتنی بر کتاب</strong><span>برنامه‌های عملیاتی متناسب با اهداف سازمان</span></div>
+        </li>
+        <li>
+          <span class="tick"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <div><strong>پیگیری تا نتیجه</strong><span>ارزیابی اثربخشی و استمرار مسیر یادگیری</span></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:20px">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eyebrow">خدمات</div>
+      <h2>آنچه برای سازمان شما می‌سازیم</h2>
+      <p>مجموعه‌ای از خدمات تخصصی برای تیم‌سازی، توسعه مدیران و فرهنگ یادگیری.</p>
+    </div>
+    <div class="offer-grid">
+      <div class="offer reveal">
+        <h3>کتابخانه سازمانی سفارشی</h3>
+        <p>گزینش عناوین تخصصی مدیریت، رهبری، فروش و منابع انسانی متناسب با صنعت و سطح بلوغ سازمان شما.</p>
+      </div>
+      <div class="offer reveal d1">
+        <h3>برنامه‌های توسعه تیمی</h3>
+        <p>طراحی مسیرهای مطالعاتی گروهی برای هم‌افزایی، گفت‌وگوی حرفه‌ای و حل چالش‌های واقعی تیم.</p>
+      </div>
+      <div class="offer reveal d2">
+        <h3>باشگاه کتاب‌خوانی مدیران</h3>
+        <p>جلسات منظم برای مدیران با محور کتاب‌های منتخب کسب‌وکار و تسهیلگری تخصصی خوب‌بوک.</p>
+      </div>
+      <div class="offer reveal d3">
+        <h3>گزارش و سنجش اثر</h3>
+        <p>پیگیری مشارکت، بازخورد تیم و شاخص‌های یادگیری برای اطمینان از نتیجه ملموس برنامه‌ها.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="kb-biz-cta">
+  <div class="wrap">
+    <div class="cta reveal">
+      <div class="eyebrow" style="background:rgba(255,255,255,.1);color:#ff8a9a">شروع همکاری</div>
+      <h2>برای سازمان‌تان برنامه اختصاصی می‌خواهید؟</h2>
+      <p>با تیم خوب‌بوک بیزینس گفتگو کنید تا مسیر مناسب توسعه منابع انسانی مبتنی بر کتاب را طراحی کنیم.</p>
+      <a href="#kb-cta" class="btn btn-primary">ثبت درخواست مشاوره</a>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var root = document.currentScript ? document.currentScript.previousElementSibling : null;
+  while (root && !root.classList.contains('kb-business-scope')) {
+    root = root.previousElementSibling;
+  }
+  if (!root) root = document.querySelector('.kb-business-scope');
+  if (!root) return;
+
+  var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!prefersReduced && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    root.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+  } else {
+    root.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+  }
+})();
+</script>
+</div>

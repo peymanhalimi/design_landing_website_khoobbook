@@ -1,0 +1,619 @@
+<!-- KhoobBook Landing — Elementor HTML Widget only (no html/head/body) -->
+<style>
+@font-face{font-family:"PelakFA";src:url("assets/fonts/PelakFA-Thin.woff2") format("woff2");font-weight:100;font-display:swap}
+@font-face{font-family:"PelakFA";src:url("assets/fonts/PelakFA-light.woff2") format("woff2");font-weight:300;font-display:swap}
+@font-face{font-family:"PelakFA";src:url("assets/fonts/PelakFA-Regular.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"PelakFA";src:url("assets/fonts/PelakFA-Medium.woff2") format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"PelakFA";src:url("assets/fonts/PelakFA-SemiBold.woff2") format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:"PelakFA";src:url("assets/fonts/PelakFA-Bold.woff2") format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"PelakFA";src:url("assets/fonts/PelakFA-ExtraBold.woff2") format("woff2");font-weight:800;font-display:swap}
+@font-face{font-family:"PelakFA";src:url("assets/fonts/PelakFA-Black.woff2") format("woff2");font-weight:900;font-display:swap}
+
+.kb-landing-scope,.kb-landing-scope *,.kb-landing-scope *::before,.kb-landing-scope *::after{box-sizing:border-box;margin:0;padding:0;border:0;font:inherit;vertical-align:baseline;-webkit-tap-highlight-color:transparent}
+.kb-landing-scope{
+  --kb-primary:#D62828;--kb-secondary:#F88F00;--kb-accent:#FCBF49;--kb-ink:#222222;--kb-muted:#757575;
+  --kb-bg:#FFFFFF;--kb-soft:#F9F8F3;--kb-warm:#E9DEC0;--kb-line:rgba(34,34,34,.08);
+  --kb-shadow:0 14px 40px rgba(34,34,34,.07);--kb-max:1140px;--kb-ease:cubic-bezier(.16,1,.3,1);
+  direction:rtl;font-family:"PelakFA",Tahoma,sans-serif;background:var(--kb-bg);color:var(--kb-ink);
+  line-height:1.75;font-size:16px;overflow-x:clip;position:relative;isolation:isolate;-webkit-font-smoothing:antialiased
+}
+.kb-landing-scope a{color:inherit;text-decoration:none}
+.kb-landing-scope button,.kb-landing-scope input,.kb-landing-scope select{font-family:inherit;outline:none;background:none;appearance:none;-webkit-appearance:none}
+.kb-landing-scope img,.kb-landing-scope svg{display:block;max-width:100%}
+.kb-landing-scope ul{list-style:none}
+.kb-wrap{width:min(100% - 2.4rem,var(--kb-max));margin-inline:auto}
+.kb-sec{padding:clamp(3.5rem,7vw,5.5rem) 0}
+.kb-sec-soft{background:var(--kb-soft)}
+.kb-label{display:inline-block;color:var(--kb-primary);font-size:.78rem;font-weight:800;margin-bottom:.55rem}
+.kb-h2{font-size:clamp(1.55rem,3vw,2.25rem);font-weight:900;line-height:1.3;letter-spacing:-.02em;margin-bottom:.65rem}
+.kb-lead{color:var(--kb-muted);max-width:34rem;font-size:.98rem}
+.kb-btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;min-height:50px;padding:.8rem 1.55rem;border-radius:999px;font-weight:800;font-size:.9rem;cursor:pointer;transition:transform .35s var(--kb-ease),box-shadow .35s ease,background .25s ease}
+.kb-btn-primary{background:var(--kb-primary);color:#fff;box-shadow:0 12px 28px rgba(214,40,40,.28)}
+.kb-btn-primary:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 16px 34px rgba(214,40,40,.38)}
+.kb-btn-outline{background:#fff;color:var(--kb-ink);border:1.5px solid var(--kb-line)}
+.kb-btn-outline:hover{border-color:var(--kb-primary);color:var(--kb-primary);transform:translateY(-2px)}
+.kb-link{color:var(--kb-primary);font-weight:800;font-size:.9rem;display:inline-flex;align-items:center;gap:.35rem;transition:gap .3s ease}
+.kb-link:hover{gap:.65rem}
+.kb-reveal{opacity:0;transform:translate3d(0,28px,0);transition:opacity .75s var(--kb-ease),transform .75s var(--kb-ease)}
+.kb-reveal.kb-on{opacity:1;transform:none}
+.kb-d1{transition-delay:.08s}.kb-d2{transition-delay:.16s}.kb-d3{transition-delay:.24s}
+.kb-mock{width:100%;height:100%;object-fit:cover;background:linear-gradient(145deg,#f3eee6,#e9dec0 45%,#f8d3c8)}
+.kb-mock-lab{position:absolute;inset:auto 12px 12px auto;background:rgba(34,34,34,.72);color:#fff;font-size:.68rem;font-weight:700;padding:.28rem .55rem;border-radius:8px;z-index:2}
+
+/* Hero */
+.kb-hero{position:relative;padding:clamp(3rem,6vw,4.5rem) 0 2.5rem;overflow:hidden}
+.kb-hero-canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.45;z-index:0;pointer-events:none}
+.kb-hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:2.5rem;align-items:center}
+.kb-hero-copy .kb-h1{font-size:clamp(2rem,4.8vw,3.4rem);font-weight:900;line-height:1.25;letter-spacing:-.03em;margin:0 0 1rem}
+.kb-hero-copy .kb-h1 span{color:var(--kb-primary)}
+.kb-hero-copy p{color:var(--kb-muted);font-size:1.02rem;max-width:30rem;margin-bottom:1.5rem}
+.kb-hero-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:1.5rem}
+.kb-hero-visual{position:relative;min-height:420px;border-radius:28px;overflow:hidden;background:var(--kb-soft);box-shadow:var(--kb-shadow)}
+.kb-hero-visual::before{content:"";position:absolute;inset:-10% -20% auto auto;width:70%;height:70%;background:radial-gradient(circle,rgba(214,40,40,.28),transparent 70%);z-index:1;pointer-events:none;animation:kb-pulse 5s ease-in-out infinite}
+.kb-hero-visual img{position:relative;z-index:2;width:100%;height:100%;min-height:420px;object-fit:cover}
+.kb-float{position:absolute;z-index:3;background:#fff;border-radius:16px;padding:.75rem 1rem;box-shadow:var(--kb-shadow);animation:kb-float 4.5s ease-in-out infinite}
+.kb-float b{display:block;color:var(--kb-primary);font-weight:900;font-size:.95rem}
+.kb-float span{color:var(--kb-muted);font-size:.72rem}
+.kb-f1{top:12%;right:6%}.kb-f2{bottom:14%;left:6%;animation-delay:-1.6s}
+@keyframes kb-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes kb-pulse{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(1.08);opacity:1}}
+
+/* Why */
+.kb-why-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center}
+.kb-why-list{display:grid;gap:.9rem}
+.kb-why-item{display:grid;grid-template-columns:auto 1fr;gap:.9rem;align-items:start;background:#fff;border:1px solid var(--kb-line);border-radius:18px;padding:1.05rem 1.15rem;box-shadow:var(--kb-shadow);transition:transform .4s var(--kb-ease),box-shadow .4s ease}
+.kb-why-item:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(34,34,34,.1)}
+.kb-why-ico{width:44px;height:44px;border-radius:14px;background:rgba(214,40,40,.1);color:var(--kb-primary);display:grid;place-items:center;flex-shrink:0}
+.kb-why-item h3{font-weight:900;font-size:1rem;margin-bottom:.2rem}
+.kb-why-item p{color:var(--kb-muted);font-size:.88rem}
+
+/* Process */
+.kb-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2rem}
+.kb-step{background:#fff;border:1px solid var(--kb-line);border-radius:20px;padding:1.35rem 1.2rem;box-shadow:var(--kb-shadow);transition:transform .45s var(--kb-ease);position:relative;overflow:hidden}
+.kb-step:hover{transform:translateY(-8px)}
+.kb-step-no{width:42px;height:42px;border-radius:50%;background:var(--kb-warm);color:var(--kb-primary);display:grid;place-items:center;font-weight:900;margin-bottom:1rem}
+.kb-step h3{font-weight:900;font-size:1.02rem;margin-bottom:.4rem}
+.kb-step p{color:var(--kb-muted);font-size:.86rem}
+
+/* Services */
+.kb-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.15rem;margin-top:2rem}
+.kb-card{background:#fff;border:1px solid var(--kb-line);border-radius:22px;overflow:hidden;box-shadow:var(--kb-shadow);display:flex;flex-direction:column;transition:transform .45s var(--kb-ease),box-shadow .45s ease}
+.kb-card:hover{transform:translateY(-10px);box-shadow:0 22px 48px rgba(34,34,34,.12)}
+.kb-card-media{position:relative;aspect-ratio:16/10;overflow:hidden}
+.kb-card-media img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--kb-ease)}
+.kb-card:hover .kb-card-media img{transform:scale(1.08)}
+.kb-card-body{padding:1.25rem 1.2rem 1.35rem;flex:1;display:flex;flex-direction:column}
+.kb-card-meta{color:var(--kb-secondary);font-size:.72rem;font-weight:800;letter-spacing:.04em;margin-bottom:.35rem}
+.kb-card h3{font-weight:900;font-size:1.12rem;margin-bottom:.45rem}
+.kb-card p{color:var(--kb-muted);font-size:.88rem;flex:1;margin-bottom:1rem}
+.kb-card ul{display:grid;gap:.4rem;margin-bottom:1rem}
+.kb-card li{display:flex;align-items:center;gap:.45rem;font-size:.82rem;color:var(--kb-muted)}
+.kb-card li::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--kb-primary);flex-shrink:0}
+
+/* Logos */
+.kb-logos{overflow:hidden;padding:1.5rem 0;border-block:1px solid var(--kb-line);background:var(--kb-soft)}
+.kb-logos-track{display:flex;gap:2.5rem;width:max-content;animation:kb-marquee 28s linear infinite;align-items:center}
+.kb-logo-item{width:140px;height:56px;border-radius:12px;background:#fff;border:1px solid var(--kb-line);display:grid;place-items:center;padding:.55rem;box-shadow:0 6px 18px rgba(34,34,34,.04)}
+.kb-logo-item img{max-width:100%;max-height:100%;object-fit:contain;filter:grayscale(1) opacity(.75);transition:filter .3s ease}
+.kb-logo-item:hover img{filter:none}
+@keyframes kb-marquee{from{transform:translateX(0)}to{transform:translateX(50%)}}
+
+/* Clubs */
+.kb-clubs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:2rem}
+.kb-club{background:#fff;border-radius:22px;overflow:hidden;border:1px solid var(--kb-line);box-shadow:var(--kb-shadow);transition:transform .45s var(--kb-ease)}
+.kb-club:hover{transform:translateY(-8px) rotate(-.4deg)}
+.kb-club-media{position:relative;aspect-ratio:4/3;overflow:hidden}
+.kb-club-media img{width:100%;height:100%;object-fit:cover;transition:transform .65s var(--kb-ease)}
+.kb-club:hover .kb-club-media img{transform:scale(1.07)}
+.kb-club-body{padding:1.15rem 1.2rem 1.3rem}
+.kb-club-body h3{font-weight:900;margin-bottom:.35rem}
+.kb-club-body p{color:var(--kb-muted);font-size:.88rem}
+.kb-badge{display:inline-block;background:rgba(248,143,0,.14);color:var(--kb-secondary);font-size:.7rem;font-weight:800;padding:.25rem .55rem;border-radius:999px;margin-bottom:.55rem}
+
+/* CTA */
+.kb-cta{padding:2rem 0 5rem}
+.kb-cta-box{position:relative;border-radius:28px;overflow:visible;min-height:260px}
+.kb-cta-bg{position:absolute;inset:0;border-radius:28px;overflow:hidden}
+.kb-cta-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.38)}
+.kb-cta-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:1.5rem;align-items:center;padding:2.4rem 2rem 2.6rem}
+.kb-cta-copy{color:#fff;padding-block:1rem}
+.kb-cta-copy h2{font-size:clamp(1.45rem,2.6vw,2rem);font-weight:900;line-height:1.35;margin-bottom:.7rem}
+.kb-cta-copy p{color:rgba(255,255,255,.75);max-width:28rem}
+.kb-cta-form-wrap{margin-bottom:-4rem}
+.kb-form{background:var(--kb-primary);border-radius:22px;padding:1.35rem 1.2rem;display:grid;gap:.7rem;box-shadow:0 20px 44px rgba(214,40,40,.35)}
+.kb-form h3{color:#fff;text-align:center;font-weight:900}
+.kb-field{width:100%;min-height:48px;border-radius:12px;background:#fff;padding:.7rem 1rem;color:var(--kb-ink);font-size:.9rem;border:2px solid transparent}
+.kb-field:focus{border-color:var(--kb-accent)}
+.kb-field-select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23757575' d='M1.4.6 6 5.2 10.6.6 12 2 6 8 0 2z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:left 1rem center;padding-left:2.2rem;cursor:pointer;color:var(--kb-muted)}
+.kb-submit{min-height:48px;border-radius:12px;background:#fff;color:var(--kb-primary);font-weight:900;cursor:pointer;transition:transform .3s ease}
+.kb-submit:hover{transform:scale(1.02)}
+.kb-msg{display:none;text-align:center;color:#fff;font-size:.85rem;font-weight:700}
+.kb-msg.kb-show{display:block}
+
+/* Voices */
+.kb-track{display:flex;gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:.4rem .1rem 1.2rem;cursor:grab}
+.kb-track::-webkit-scrollbar{display:none}
+.kb-voice{flex:0 0 min(100%,330px);scroll-snap-align:start;background:#fff;border:1px solid var(--kb-line);border-radius:20px;padding:1.4rem;box-shadow:var(--kb-shadow);min-height:230px;display:flex;flex-direction:column;transition:transform .4s ease}
+.kb-voice:hover{transform:translateY(-6px)}
+.kb-q{color:var(--kb-primary);font-size:2.4rem;font-weight:900;line-height:.8;margin-bottom:.5rem}
+.kb-voice p{color:var(--kb-muted);font-size:.92rem;flex:1;margin-bottom:1.1rem}
+.kb-author{display:flex;align-items:center;gap:.7rem}
+.kb-av{width:42px;height:42px;border-radius:50%;overflow:hidden;background:var(--kb-warm)}
+.kb-av img{width:100%;height:100%;object-fit:cover}
+.kb-author strong{display:block;font-weight:800;font-size:.9rem}
+.kb-author span{font-size:.74rem;color:var(--kb-muted)}
+.kb-dots{display:flex;justify-content:center;gap:.4rem}
+.kb-dot{width:8px;height:8px;border-radius:50%;background:#d7d3ca;border:none;cursor:pointer;padding:0}
+.kb-dot.kb-on{background:var(--kb-primary);transform:scale(1.25)}
+
+/* FAQ */
+.kb-faq-list{max-width:820px;margin:1.8rem auto 0;display:grid;gap:.65rem}
+.kb-faq{background:#fff;border:1px solid var(--kb-line);border-radius:16px;overflow:hidden;box-shadow:var(--kb-shadow)}
+.kb-faq.kb-open{background:var(--kb-soft);border-color:rgba(214,40,40,.22)}
+.kb-faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.1rem 1.2rem;text-align:right;cursor:pointer;font-weight:800;background:transparent}
+.kb-faq-ico{width:28px;height:28px;border-radius:50%;background:rgba(214,40,40,.1);color:var(--kb-primary);display:grid;place-items:center;transition:transform .35s ease,background .25s ease,color .25s ease}
+.kb-faq.kb-open .kb-faq-ico{transform:rotate(45deg);background:var(--kb-primary);color:#fff}
+.kb-faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s var(--kb-ease)}
+.kb-faq.kb-open .kb-faq-a{grid-template-rows:1fr}
+.kb-faq-a > div{overflow:hidden;min-height:0}
+.kb-faq-a p{padding:0 1.2rem 1.1rem;color:var(--kb-muted);font-size:.92rem}
+
+/* Blog */
+.kb-blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.15rem;margin-top:1.8rem}
+.kb-blog{background:#fff;border:1px solid var(--kb-line);border-radius:20px;overflow:hidden;box-shadow:var(--kb-shadow);transition:transform .45s var(--kb-ease)}
+.kb-blog:hover{transform:translateY(-8px)}
+.kb-blog-media{position:relative;aspect-ratio:16/10;overflow:hidden}
+.kb-blog-media img{width:100%;height:100%;object-fit:cover;transition:transform .65s ease}
+.kb-blog:hover .kb-blog-media img{transform:scale(1.07)}
+.kb-tag{position:absolute;top:.75rem;right:.75rem;background:var(--kb-primary);color:#fff;font-size:.68rem;font-weight:800;padding:.25rem .55rem;border-radius:999px;z-index:1}
+.kb-blog-body{padding:1.15rem}
+.kb-blog-body h3{font-weight:900;font-size:1rem;line-height:1.45;margin-bottom:.45rem}
+.kb-blog-body p{color:var(--kb-muted);font-size:.86rem;margin-bottom:.85rem}
+
+@media (prefers-reduced-motion:reduce){
+  .kb-landing-scope *,.kb-landing-scope *::before,.kb-landing-scope *::after{animation:none!important;transition:none!important}
+  .kb-reveal{opacity:1;transform:none}
+  .kb-logos-track{animation:none}
+}
+@media (max-width:980px){
+  .kb-hero-grid,.kb-why-grid,.kb-cta-inner,.kb-cards,.kb-clubs-grid,.kb-blog-grid{grid-template-columns:1fr}
+  .kb-steps{grid-template-columns:1fr 1fr}
+  .kb-hero-visual{order:-1}
+  .kb-cta-form-wrap{margin-bottom:-2.2rem}
+}
+@media (max-width:640px){
+  .kb-wrap{width:min(100% - 1.4rem,var(--kb-max))}
+  .kb-steps,.kb-cards,.kb-clubs-grid,.kb-blog-grid{grid-template-columns:1fr}
+  .kb-hero-visual,.kb-hero-visual img{min-height:300px}
+}
+</style>
+
+<div class="kb-landing-scope" id="kb-landing-root">
+
+  <!-- HERO -->
+  <section class="kb-hero" id="kb-hero">
+    <canvas class="kb-hero-canvas" id="kb-webgl" aria-hidden="true"></canvas>
+    <div class="kb-wrap kb-hero-grid">
+      <div class="kb-hero-copy">
+        <span class="kb-label kb-reveal">پلتفرم خلاق کتابخوانی</span>
+        <h1 class="kb-h1 kb-reveal">ما <span>خوب‌بوک</span> هستیم؛ کتاب را به راه‌حل تبدیل می‌کنیم</h1>
+        <p class="kb-reveal kb-d1">از عارضه‌یابی سازمانی تا باشگاه‌های کتابخوانی، جونیور، ادونچر، کافه و کتابفروشی — تجربه کتابی که فقط جلسه سنتی نیست.</p>
+        <div class="kb-hero-actions kb-reveal kb-d2">
+          <a class="kb-btn kb-btn-primary" href="#kb-services">مسیرهای خوب‌بوک</a>
+          <a class="kb-btn kb-btn-outline" href="#kb-cta">درخواست همکاری</a>
+        </div>
+      </div>
+      <div class="kb-hero-visual kb-reveal kb-d1">
+        <!-- MOCK: تصویر تیم / فضای کتاب -->
+        <img class="kb-mock" src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=80" alt="ماک تصویر هیرو خوب‌بوک" width="800" height="520" loading="eager" />
+        <span class="kb-mock-lab">MOCK · Hero</span>
+        <div class="kb-float kb-f1"><b>۵ مسیر</b><span>خدمت اصلی</span></div>
+        <div class="kb-float kb-f2"><b>بازی + کتاب</b><span>نه فقط جلسه سنتی</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="kb-sec kb-sec-soft" id="kb-why">
+    <div class="kb-wrap kb-why-grid">
+      <div class="kb-why-list">
+        <article class="kb-why-item kb-reveal">
+          <div class="kb-why-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 19.5A2.5 2.5 0 016.5 17H20" stroke="currentColor" stroke-width="1.8"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" stroke="currentColor" stroke-width="1.8"/></svg></div>
+          <div><h3>عارضه‌یابی و طرح مسئله</h3><p>با سازمان قرارداد می‌بندیم، مسئله را پیدا می‌کنیم و راه‌حل کتاب‌محور اجرا می‌کنیم.</p></div>
+        </article>
+        <article class="kb-why-item kb-reveal kb-d1">
+          <div class="kb-why-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="currentColor" stroke-width="1.8"/><circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="1.8"/></svg></div>
+          <div><h3>باشگاه و رویداد</h3><p>مافیای کتاب، باشگاه مدیران و باشگاه مدیران پارک علم و فناوری.</p></div>
+        </article>
+        <article class="kb-why-item kb-reveal kb-d2">
+          <div class="kb-why-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3l2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5L12 3z" stroke="currentColor" stroke-width="1.8"/></svg></div>
+          <div><h3>بازی و اردو</h3><p>جلسه سنتی نیست؛ برای تیم‌ها بازی طراحی می‌کنیم و اردوی سازمانی برگزار می‌کنیم.</p></div>
+        </article>
+        <article class="kb-why-item kb-reveal kb-d3">
+          <div class="kb-why-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" stroke="currentColor" stroke-width="1.8"/></svg></div>
+          <div><h3>کافه و کتابفروشی</h3><p>فضای تجربه حضوری کنار اکوسیستم دیجیتال و سازمانی خوب‌بوک.</p></div>
+        </article>
+      </div>
+      <div class="kb-reveal">
+        <span class="kb-label">چرا خوب‌بوک؟</span>
+        <h2 class="kb-h2">کتاب را به ابزار تغییر سازمان و نسل جدید تبدیل می‌کنیم</h2>
+        <p class="kb-lead">خوب‌بوک بیزینس، جونیور، ادونچر، باشگاه‌ها، کافه و فروشگاه — یک اکوسیستم برای خواندن، تجربه و حل مسئله.</p>
+        <div style="position:relative;margin-top:1.4rem;border-radius:22px;overflow:hidden;aspect-ratio:16/10;box-shadow:var(--kb-shadow)">
+          <img class="kb-mock" src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=1100&q=80" alt="ماک فضای کتاب" loading="lazy" />
+          <span class="kb-mock-lab">MOCK · About</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="kb-sec" id="kb-process">
+    <div class="kb-wrap">
+      <div class="kb-reveal" style="text-align:center;margin-inline:auto;max-width:40rem">
+        <span class="kb-label">خوب‌بوک بیزینس</span>
+        <h2 class="kb-h2">مسیر همکاری سازمانی</h2>
+        <p class="kb-lead" style="margin-inline:auto">از قرارداد تا اجرا؛ جلسه کتابخوانی، مشاوره فردی، اردو و بازی اختصاصی.</p>
+      </div>
+      <div class="kb-steps">
+        <article class="kb-step kb-reveal"><div class="kb-step-no">۱</div><h3>ارتباط و قرارداد</h3><p>ورود به سازمان و تعریف همکاری.</p></article>
+        <article class="kb-step kb-reveal kb-d1"><div class="kb-step-no">۲</div><h3>عارضه‌یابی</h3><p>پیدا کردن مسئله‌های واقعی تیم.</p></article>
+        <article class="kb-step kb-reveal kb-d2"><div class="kb-step-no">۳</div><h3>طرح مسئله</h3><p>تبدیل مشکل به مسیر روشن.</p></article>
+        <article class="kb-step kb-reveal kb-d3"><div class="kb-step-no">۴</div><h3>راه‌حل و اجرا</h3><p>جلسه، مشاوره، بازی یا اردو.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="kb-sec kb-sec-soft" id="kb-services">
+    <div class="kb-wrap">
+      <div class="kb-reveal" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;align-items:end">
+        <div>
+          <span class="kb-label">مسیرها</span>
+          <h2 class="kb-h2">خطوط اصلی خوب‌بوک</h2>
+          <p class="kb-lead">هر مسیر صفحه اختصاصی دارد؛ فروشگاه از ووکامرس می‌آید.</p>
+        </div>
+        <a class="kb-link" href="#kb-cta">شروع همکاری ←</a>
+      </div>
+      <div class="kb-cards">
+        <article class="kb-card kb-reveal">
+          <div class="kb-card-media">
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80" alt="ماک بیزینس" loading="lazy" />
+            <span class="kb-mock-lab">MOCK</span>
+          </div>
+          <div class="kb-card-body">
+            <div class="kb-card-meta">Business</div>
+            <h3>خوب‌بوک بیزینس</h3>
+            <p>تعامل با سازمان‌ها، عارضه‌یابی، طراحی راه‌حل و اجرا با محوریت کتاب.</p>
+            <ul><li>جلسات کتابخوانی</li><li>مشاوره فردی</li><li>اردوی سازمانی</li></ul>
+            <a class="kb-link" href="/business/">مشاهده صفحه</a>
+          </div>
+        </article>
+        <article class="kb-card kb-reveal kb-d1">
+          <div class="kb-card-media">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80" alt="ماک جونیور" loading="lazy" />
+            <span class="kb-mock-lab">MOCK</span>
+          </div>
+          <div class="kb-card-body">
+            <div class="kb-card-meta">Junior</div>
+            <h3>خوب‌بوک جونیور</h3>
+            <p>نوجوانان وارد تعامل می‌شوند؛ ایونت و باشگاه مافیای کتاب.</p>
+            <ul><li>رویدادهای نوجوانان</li><li>مافیای کتاب</li><li>تعامل و جامعه</li></ul>
+            <a class="kb-link" href="/junior/">مشاهده صفحه</a>
+          </div>
+        </article>
+        <article class="kb-card kb-reveal kb-d2">
+          <div class="kb-card-media">
+            <img src="https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&w=900&q=80" alt="ماک ادونچر" loading="lazy" />
+            <span class="kb-mock-lab">MOCK</span>
+          </div>
+          <div class="kb-card-body">
+            <div class="kb-card-meta">Adventure</div>
+            <h3>خوب‌بوک ادونچر</h3>
+            <p>برای سازمان‌ها عارضه‌یابی می‌کنیم و اردو + بازی طراحی و اجرا می‌کنیم.</p>
+            <ul><li>طرح مسئله</li><li>طراحی بازی</li><li>اردوی سازمانی</li></ul>
+            <a class="kb-link" href="/adventure/">مشاهده صفحه</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGOS MOCK -->
+  <section class="kb-logos" id="kb-partners" aria-label="سازمان‌های همکار">
+    <div class="kb-logos-track" id="kb-logos-track">
+      <div class="kb-logo-item"><img src="https://placehold.co/140x48/ffffff/757575?text=Logo+1" alt="ماک لوگو ۱" loading="lazy" /></div>
+      <div class="kb-logo-item"><img src="https://placehold.co/140x48/ffffff/757575?text=Logo+2" alt="ماک لوگو ۲" loading="lazy" /></div>
+      <div class="kb-logo-item"><img src="https://placehold.co/140x48/ffffff/757575?text=Logo+3" alt="ماک لوگو ۳" loading="lazy" /></div>
+      <div class="kb-logo-item"><img src="https://placehold.co/140x48/ffffff/757575?text=Logo+4" alt="ماک لوگو ۴" loading="lazy" /></div>
+      <div class="kb-logo-item"><img src="https://placehold.co/140x48/ffffff/757575?text=Logo+5" alt="ماک لوگو ۵" loading="lazy" /></div>
+      <div class="kb-logo-item"><img src="https://placehold.co/140x48/ffffff/757575?text=Logo+6" alt="ماک لوگو ۶" loading="lazy" /></div>
+      <div class="kb-logo-item"><img src="https://placehold.co/140x48/ffffff/757575?text=Logo+1" alt="ماک لوگو ۱" loading="lazy" /></div>
+      <div class="kb-logo-item"><img src="https://placehold.co/140x48/ffffff/757575?text=Logo+2" alt="ماک لوگو ۲" loading="lazy" /></div>
+      <div class="kb-logo-item"><img src="https://placehold.co/140x48/ffffff/757575?text=Logo+3" alt="ماک لوگو ۳" loading="lazy" /></div>
+      <div class="kb-logo-item"><img src="https://placehold.co/140x48/ffffff/757575?text=Logo+4" alt="ماک لوگو ۴" loading="lazy" /></div>
+      <div class="kb-logo-item"><img src="https://placehold.co/140x48/ffffff/757575?text=Logo+5" alt="ماک لوگو ۵" loading="lazy" /></div>
+      <div class="kb-logo-item"><img src="https://placehold.co/140x48/ffffff/757575?text=Logo+6" alt="ماک لوگو ۶" loading="lazy" /></div>
+    </div>
+  </section>
+
+  <!-- CLUBS -->
+  <section class="kb-sec" id="kb-clubs">
+    <div class="kb-wrap">
+      <div class="kb-reveal">
+        <span class="kb-label">باشگاه‌ها و تجربه</span>
+        <h2 class="kb-h2">کتاب را بازی می‌کنیم، نه فقط می‌خوانیم</h2>
+        <p class="kb-lead">باشگاه‌های فعال و برنامه‌های تعاملی خوب‌بوک.</p>
+      </div>
+      <div class="kb-clubs-grid">
+        <article class="kb-club kb-reveal">
+          <div class="kb-club-media">
+            <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=900&q=80" alt="ماک مافیای کتاب" loading="lazy" />
+            <span class="kb-mock-lab">MOCK</span>
+          </div>
+          <div class="kb-club-body">
+            <span class="kb-badge">جونیور</span>
+            <h3>باشگاه مافیای کتاب</h3>
+            <p>رویداد و باشگاه تعاملی برای نوجوانان خوب‌بوک جونیور.</p>
+          </div>
+        </article>
+        <article class="kb-club kb-reveal kb-d1">
+          <div class="kb-club-media">
+            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=900&q=80" alt="ماک باشگاه مدیران" loading="lazy" />
+            <span class="kb-mock-lab">MOCK</span>
+          </div>
+          <div class="kb-club-body">
+            <span class="kb-badge">مدیران</span>
+            <h3>باشگاه مدیران</h3>
+            <p>گفت‌وگوی مدیران درباره مسئله‌های واقعی با محوریت کتاب.</p>
+          </div>
+        </article>
+        <article class="kb-club kb-reveal kb-d2">
+          <div class="kb-club-media">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=80" alt="ماک پارک علم" loading="lazy" />
+            <span class="kb-mock-lab">MOCK</span>
+          </div>
+          <div class="kb-club-body">
+            <span class="kb-badge">پارک علم و فناوری</span>
+            <h3>باشگاه مدیران پارک علم</h3>
+            <p>باشگاه تخصصی مدیران در اکوسیستم پارک علم و فناوری.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="kb-cta" id="kb-cta">
+    <div class="kb-wrap">
+      <div class="kb-cta-box kb-reveal">
+        <div class="kb-cta-bg">
+          <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1400&q=80" alt="ماک بنر CTA" loading="lazy" />
+        </div>
+        <div class="kb-cta-inner">
+          <div class="kb-cta-copy">
+            <h2>برای همکاری سازمانی یا عضویت در مسیرها درخواست بدهید</h2>
+            <p>بیزینس، جونیور، ادونچر یا باشگاه — فرم را پر کنید تا با شما هماهنگ کنیم.</p>
+          </div>
+          <div class="kb-cta-form-wrap">
+            <form class="kb-form" id="kb-form" novalidate>
+              <h3>ثبت درخواست</h3>
+              <input class="kb-field" id="kb-name" type="text" placeholder="نام و نام خانوادگی" required />
+              <input class="kb-field" id="kb-phone" type="tel" placeholder="شماره تماس" required />
+              <select class="kb-field kb-field-select" id="kb-service" required>
+                <option value="" disabled selected>انتخاب موضوع</option>
+                <option value="business">خوب‌بوک بیزینس</option>
+                <option value="junior">خوب‌بوک جونیور</option>
+                <option value="adventure">خوب‌بوک ادونچر</option>
+                <option value="club">باشگاه کتابخوانی</option>
+                <option value="other">سایر</option>
+              </select>
+              <button class="kb-submit" type="submit">ارسال درخواست</button>
+              <p class="kb-msg" id="kb-msg" role="status"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VOICES -->
+  <section class="kb-sec kb-sec-soft" id="kb-voices">
+    <div class="kb-wrap">
+      <div class="kb-reveal" style="text-align:center;margin-bottom:1.5rem">
+        <span class="kb-label">نظرات</span>
+        <h2 class="kb-h2">از تجربه همراهان</h2>
+      </div>
+      <div class="kb-track kb-reveal" id="kb-track">
+        <article class="kb-voice">
+          <div class="kb-q">”</div>
+          <p>عارضه‌یابی خوب‌بوک بیزینس برای تیم ما واقعی بود؛ بعدش جلسه و بازی اختصاصی گرفتیم.</p>
+          <div class="kb-author">
+            <div class="kb-av"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="ماک آواتار" loading="lazy" /></div>
+            <div><strong>علی کریمی</strong><span>همکار سازمانی</span></div>
+          </div>
+        </article>
+        <article class="kb-voice">
+          <div class="kb-q">”</div>
+          <p>مافیای کتاب برای نوجوان ما جذاب‌تر از هر کلاس مطالعه‌ای بود.</p>
+          <div class="kb-author">
+            <div class="kb-av"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80" alt="ماک آواتار" loading="lazy" /></div>
+            <div><strong>نرگس رضایی</strong><span>والد جونیور</span></div>
+          </div>
+        </article>
+        <article class="kb-voice">
+          <div class="kb-q">”</div>
+          <p>اردوی ادونچر فقط تفریح نبود؛ مسئله تیم را روی زمین حل کرد.</p>
+          <div class="kb-author">
+            <div class="kb-av"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=120&q=80" alt="ماک آواتار" loading="lazy" /></div>
+            <div><strong>مهدی احمدی</strong><span>مدیر منابع انسانی</span></div>
+          </div>
+        </article>
+      </div>
+      <div class="kb-dots" id="kb-dots"></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="kb-sec" id="kb-faq">
+    <div class="kb-wrap">
+      <div class="kb-reveal" style="text-align:center">
+        <span class="kb-label">پرسش‌ها</span>
+        <h2 class="kb-h2">سوالات پرتکرار</h2>
+      </div>
+      <div class="kb-faq-list" id="kb-faq-list">
+        <div class="kb-faq kb-open kb-reveal">
+          <button class="kb-faq-q" type="button" aria-expanded="true">خوب‌بوک دقیقاً چیست؟ <span class="kb-faq-ico">+</span></button>
+          <div class="kb-faq-a"><div><p>پلتفرم خلاق کتابخوانی با مسیرهای بیزینس، جونیور، ادونچر، باشگاه‌ها، کافه و کتابفروشی.</p></div></div>
+        </div>
+        <div class="kb-faq kb-reveal">
+          <button class="kb-faq-q" type="button" aria-expanded="false">خوب‌بوک بیزینس چطور کار می‌کند؟ <span class="kb-faq-ico">+</span></button>
+          <div class="kb-faq-a"><div><p>قرارداد، عارضه‌یابی، طرح مسئله، طراحی راه‌حل و اجرا شامل جلسه، مشاوره، بازی یا اردو.</p></div></div>
+        </div>
+        <div class="kb-faq kb-reveal">
+          <button class="kb-faq-q" type="button" aria-expanded="false">جلسات شما سنتی است؟ <span class="kb-faq-ico">+</span></button>
+          <div class="kb-faq-a"><div><p>خیر؛ بازی و تجربه هم طراحی می‌کنیم تا یادگیری درگیرکننده باشد.</p></div></div>
+        </div>
+        <div class="kb-faq kb-reveal">
+          <button class="kb-faq-q" type="button" aria-expanded="false">فروشگاه و رویداد کجاست؟ <span class="kb-faq-ico">+</span></button>
+          <div class="kb-faq-a"><div><p>فروشگاه از ووکامرس و صفحات رویداد/بلاگ از المنتور مدیریت می‌شوند.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section class="kb-sec kb-sec-soft" id="kb-blog">
+    <div class="kb-wrap">
+      <div class="kb-reveal" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;align-items:end">
+        <div>
+          <span class="kb-label">بلاگ</span>
+          <h2 class="kb-h2">از دنیای خوب‌بوک</h2>
+        </div>
+        <a class="kb-link" href="/blog/">همه مطالب</a>
+      </div>
+      <div class="kb-blog-grid">
+        <article class="kb-blog kb-reveal">
+          <div class="kb-blog-media">
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80" alt="ماک بلاگ ۱" loading="lazy" />
+            <span class="kb-tag">بیزینس</span>
+            <span class="kb-mock-lab">MOCK</span>
+          </div>
+          <div class="kb-blog-body">
+            <h3>عارضه‌یابی سازمانی با کتاب از کجا شروع می‌شود؟</h3>
+            <p>گام‌های ورود به مسئله واقعی تیم‌ها.</p>
+            <a class="kb-link" href="#">ادامه</a>
+          </div>
+        </article>
+        <article class="kb-blog kb-reveal kb-d1">
+          <div class="kb-blog-media">
+            <img src="https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=900&q=80" alt="ماک بلاگ ۲" loading="lazy" />
+            <span class="kb-tag">جونیور</span>
+            <span class="kb-mock-lab">MOCK</span>
+          </div>
+          <div class="kb-blog-body">
+            <h3>مافیای کتاب؛ وقتی نوجوانان وارد بازی می‌شوند</h3>
+            <p>چرا رویداد تعاملی بهتر از کلاس اجباری است.</p>
+            <a class="kb-link" href="#">ادامه</a>
+          </div>
+        </article>
+        <article class="kb-blog kb-reveal kb-d2">
+          <div class="kb-blog-media">
+            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80" alt="ماک بلاگ ۳" loading="lazy" />
+            <span class="kb-tag">ادونچر</span>
+            <span class="kb-mock-lab">MOCK</span>
+          </div>
+          <div class="kb-blog-body">
+            <h3>اردوی سازمانی که فقط تفریح نیست</h3>
+            <p>چطور بازی و اردو به حل مسئله وصل می‌شود.</p>
+            <a class="kb-link" href="#">ادامه</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var root=document.getElementById("kb-landing-root");
+  if(!root) return;
+  var reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  var reveals=root.querySelectorAll(".kb-reveal");
+  if("IntersectionObserver" in window && !reduce){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("kb-on"); io.unobserve(e.target);} });
+    },{threshold:.12,rootMargin:"0px 0px -36px 0px"});
+    reveals.forEach(function(el){ io.observe(el); });
+  } else { reveals.forEach(function(el){ el.classList.add("kb-on"); }); }
+
+  var faq=document.getElementById("kb-faq-list");
+  if(faq){
+    faq.addEventListener("click",function(e){
+      var btn=e.target.closest(".kb-faq-q"); if(!btn) return;
+      var item=btn.parentElement, open=item.classList.contains("kb-open");
+      faq.querySelectorAll(".kb-faq.kb-open").forEach(function(x){ x.classList.remove("kb-open"); x.querySelector(".kb-faq-q").setAttribute("aria-expanded","false"); });
+      if(!open){ item.classList.add("kb-open"); btn.setAttribute("aria-expanded","true"); }
+    });
+  }
+
+  var form=document.getElementById("kb-form"), msg=document.getElementById("kb-msg");
+  if(form){
+    form.addEventListener("submit",function(e){
+      e.preventDefault();
+      var n=document.getElementById("kb-name"), p=document.getElementById("kb-phone"), s=document.getElementById("kb-service");
+      if(!n.value.trim()||!p.value.trim()||!s.value){ if(msg){ msg.textContent="نام، شماره و موضوع را کامل کنید."; msg.classList.add("kb-show"); } return; }
+      if(msg){ msg.textContent="درخواست ثبت شد."; msg.classList.add("kb-show"); }
+      form.reset();
+    });
+  }
+
+  var track=document.getElementById("kb-track"), dotsWrap=document.getElementById("kb-dots");
+  if(track){
+    var cards=[].slice.call(track.children), dots=[];
+    cards.forEach(function(_,i){
+      var d=document.createElement("button"); d.type="button"; d.className="kb-dot"+(i===0?" kb-on":"");
+      d.addEventListener("click",function(){ cards[i].scrollIntoView({behavior:reduce?"auto":"smooth",inline:"start",block:"nearest"}); });
+      dotsWrap.appendChild(d); dots.push(d);
+    });
+    var down=false,sx=0,sl=0;
+    track.addEventListener("pointerdown",function(e){ down=true; sx=e.clientX; sl=track.scrollLeft; try{track.setPointerCapture(e.pointerId);}catch(err){} });
+    track.addEventListener("pointermove",function(e){ if(!down) return; track.scrollLeft=sl-(e.clientX-sx); });
+    track.addEventListener("pointerup",function(){ down=false; });
+    track.addEventListener("scroll",function(){
+      var mid=track.scrollLeft+track.clientWidth/2, best=0, dist=1e9;
+      cards.forEach(function(c,i){ var d=Math.abs(c.offsetLeft+c.offsetWidth/2-mid); if(d<dist){dist=d;best=i;} });
+      dots.forEach(function(d,i){ d.classList.toggle("kb-on", i===best); });
+    },{passive:true});
+  }
+
+  /* soft WebGL */
+  var canvas=document.getElementById("kb-webgl");
+  if(canvas && !reduce){
+    var gl=canvas.getContext("webgl",{alpha:true,antialias:false,depth:false});
+    if(gl){
+      var hero=canvas.parentElement, dpr=Math.min(devicePixelRatio||1,2), mouse={x:.5,y:.5,tx:.5,ty:.5}, t0=performance.now(), raf=0, run=true, N=56;
+      function resize(){ var w=hero.clientWidth,h=hero.clientHeight; canvas.width=(w*dpr)|0; canvas.height=(h*dpr)|0; canvas.style.width=w+"px"; canvas.style.height=h+"px"; gl.viewport(0,0,canvas.width,canvas.height); }
+      hero.addEventListener("pointermove",function(e){ var r=hero.getBoundingClientRect(); mouse.tx=(e.clientX-r.left)/r.width; mouse.ty=1-(e.clientY-r.top)/r.height; });
+      var vs="attribute vec2 a;attribute float s;attribute float aA;uniform float t;uniform vec2 m;varying float v;void main(){vec2 p=a;vec2 d=p-(m*2.-1.);float dist=length(d)+.001;p+=normalize(d)*(.028/dist)*sin(t*1.3+dist*6.);gl_Position=vec4(p,0.,1.);gl_PointSize=s;v=aA;}";
+      var fs="precision mediump float;varying float v;void main(){float r=length(gl_PointCoord-.5);gl_FragColor=vec4(.84,.16,.16,smoothstep(.5,.12,r)*v);}";
+      function sh(type,src){ var s=gl.createShader(type); gl.shaderSource(s,src); gl.compileShader(s); return gl.getShaderParameter(s,gl.COMPILE_STATUS)?s:null; }
+      var v=sh(gl.VERTEX_SHADER,vs), f=sh(gl.FRAGMENT_SHADER,fs);
+      if(v&&f){
+        var prog=gl.createProgram(); gl.attachShader(prog,v); gl.attachShader(prog,f); gl.linkProgram(prog); gl.useProgram(prog);
+        var pos=new Float32Array(N*2), size=new Float32Array(N), alp=new Float32Array(N);
+        for(var i=0;i<N;i++){ pos[i*2]=Math.random()*2-1; pos[i*2+1]=Math.random()*2-1; size[i]=(3+Math.random()*7)*dpr; alp[i]=.1+Math.random()*0.25; }
+        function attr(data,name,n){ var b=gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER,b); gl.bufferData(gl.ARRAY_BUFFER,data,gl.STATIC_DRAW); var l=gl.getAttribLocation(prog,name); gl.enableVertexAttribArray(l); gl.vertexAttribPointer(l,n,gl.FLOAT,false,0,0); }
+        attr(pos,"a",2); attr(size,"s",1); attr(alp,"aA",1);
+        var uT=gl.getUniformLocation(prog,"t"), uM=gl.getUniformLocation(prog,"m");
+        gl.enable(gl.BLEND); gl.blendFunc(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA); gl.clearColor(0,0,0,0);
+        function frame(now){ if(!run) return; raf=requestAnimationFrame(frame); mouse.x+=(mouse.tx-mouse.x)*.08; mouse.y+=(mouse.ty-mouse.y)*.08; gl.clear(gl.COLOR_BUFFER_BIT); gl.uniform1f(uT,(now-t0)*.001); gl.uniform2f(uM,mouse.x,mouse.y); gl.drawArrays(gl.POINTS,0,N); }
+        resize(); addEventListener("resize",resize,{passive:true});
+        if("IntersectionObserver" in window){ new IntersectionObserver(function(es){ es.forEach(function(e){ run=e.isIntersecting; if(run&&!raf) raf=requestAnimationFrame(frame); if(!run){ cancelAnimationFrame(raf); raf=0; } }); },{threshold:.05}).observe(hero); }
+        raf=requestAnimationFrame(frame);
+      }
+    }
+  }
+})();
+</script>
