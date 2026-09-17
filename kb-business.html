@@ -61,21 +61,17 @@
   0%, 100% { opacity: .7; transform: scale(1); }
   50% { opacity: 1; transform: scale(1.08); }
 }
-.kb-business-scope .hero-inner { position: relative; z-index: 2; padding: 90px 0; max-width: 720px; }
+.kb-business-scope .hero-inner { position: relative; z-index: 2; padding: 90px 45px; max-width: 720px; }
 .kb-business-scope .hero-brand {
   display: inline-block; font-size: clamp(42px, 7vw, 72px); font-weight: 800;
-  line-height: 1.15; margin-bottom: 18px;
+  line-height: 1.15; margin: 0 0 18px;
   background: linear-gradient(135deg, #fff 40%, #ffb0bc);
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
-.kb-business-scope .hero h1 {
+.kb-business-scope .hero-lead {
   font-size: clamp(22px, 3.2vw, 32px); font-weight: 700;
-  line-height: 1.55; margin-bottom: 18px; color: rgba(255,255,255,.92);
+  line-height: 1.55; margin: 0 0 34px; color: rgba(255,255,255,.92);
   max-width: 560px;
-}
-.kb-business-scope .hero p {
-  font-size: 16.5px; color: rgba(255,255,255,.62); line-height: 1.95;
-  max-width: 520px; margin-bottom: 34px;
 }
 .kb-business-scope .btn {
   display: inline-flex; align-items: center; gap: 8px;
@@ -168,8 +164,20 @@
   pointer-events: none;
 }
 .kb-business-scope .cta > * { position: relative; z-index: 1; }
-.kb-business-scope .cta h2 { font-size: clamp(24px, 3vw, 34px); font-weight: 800; margin: 14px 0 12px; }
-.kb-business-scope .cta p { color: rgba(255,255,255,.6); max-width: 480px; margin: 0 auto 28px; font-size: 15.5px; line-height: 1.9; }
+.kb-business-scope .cta h2 { font-size: clamp(24px, 3vw, 34px); font-weight: 800; margin: 14px 0 24px; }
+.kb-business-scope .cta-phone {
+  display: inline-flex; align-items: center; gap: 10px;
+  direction: ltr; font-size: clamp(22px, 3vw, 28px); font-weight: 800;
+  color: #fff; letter-spacing: .04em; margin-bottom: 28px;
+  transition: color .3s var(--ease), transform .3s var(--ease);
+}
+.kb-business-scope .cta-phone:hover { color: #ffb0bc; transform: translateY(-2px); }
+.kb-business-scope .cta-phone svg { flex-shrink: 0; }
+.kb-business-scope .cta-form {
+  max-width: 520px; margin: 0 auto; text-align: right;
+  background: var(--white); color: var(--ink);
+  border-radius: 20px; padding: 28px 24px;
+}
 
 @media (max-width: 900px) {
   .kb-business-scope .path { grid-template-columns: 1fr; }
@@ -183,10 +191,9 @@
   <div class="hero-grid" aria-hidden="true"></div>
   <div class="hero-orb" aria-hidden="true"></div>
   <div class="wrap hero-inner">
-    <div class="hero-brand reveal">خوب‌بوک بیزینس</div>
-    <h1 class="reveal d1">توسعه منابع انسانی سازمان شما، مبتنی بر کتاب</h1>
-    <p class="reveal d2">با تحلیل چالش‌های تیمی و عارضه‌یابی دقیق، راهکارهای عملیاتی کتاب‌محور طراحی می‌کنیم و تا رسیدن به نتیجه ملموس همراه سازمان شما می‌مانیم.</p>
-    <a href="#kb-biz-cta" class="btn btn-primary reveal d3">
+    <h1 class="hero-brand reveal">خوب‌بوک بیزینس</h1>
+    <p class="hero-lead reveal d1">عارضه‌یابی و حل مشکلات و چالش‌های سازمان شما در حوزه منابع انسانی</p>
+    <a href="#kb-biz-cta" class="btn btn-primary reveal d2">
       درخواست مشاوره سازمانی
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
@@ -204,12 +211,12 @@
       <div class="path-item reveal">
         <span class="path-num">۰۱</span>
         <h3>می‌شناسیم</h3>
-        <p>ساختار مجموعه، نیازها و چالش‌های منابع انسانی و تیم‌تان را با بررسی دقیق شناسایی می‌کنیم.</p>
+        <p>ساختار مجموعه، نیازها و چالش‌های منابع انسانی و تیم‌تان را با بررسی دقیق شناسایی و عارضه یابی می‌کنیم.</p>
       </div>
       <div class="path-item reveal d1">
         <span class="path-num">۰۲</span>
         <h3>طراحی و اجرا می‌کنیم</h3>
-        <p>از میان برترین عناوین تخصصی کسب‌وکار، راهکارها و خدمات متناسب با سازمان شما را گزینش و پیاده‌سازی می‌کنیم.</p>
+        <p>از میان تمام راه‌حل‌ها، بهترین ها را انتخاب و خدمات متناسب با سازمان شما را طراحی و پیاده سازی می‌کنیم.</p>
       </div>
       <div class="path-item reveal d2">
         <span class="path-num">۰۳</span>
@@ -224,9 +231,9 @@
   <div class="wrap">
     <div class="outcomes reveal">
       <div>
-        <div class="eyebrow" style="background:rgba(255,255,255,.1);color:#ff8a9a">چرا بیزینس؟</div>
+        <div class="eyebrow" style="background:rgba(255,255,255,.1);color:#ff8a9a">چرا خوب بوک بیزینس؟</div>
         <h2>کتابخانه سازمانی فقط قفسه نیست؛ موتور یادگیری تیم است</h2>
-        <p>خوب‌بوک بیزینس برای سازمان‌هایی طراحی شده که می‌خواهند یادگیری مستمر، هم‌زبانی تیمی و توسعه مهارت‌های مدیریتی را به بخشی از فرهنگ روزمره تبدیل کنند.</p>
+        <p>خیلی از مشکلاتی که اشتباها آن‌ها را سخت و پیچیده خطاب می‌کنیم، راه‌حل‌های ساده‌ای دارند که فقط در کتاب‌ها پیدا می‌شوند.</p>
       </div>
       <ul class="outcome-list">
         <li>
@@ -251,24 +258,40 @@
     <div class="head reveal">
       <div class="eyebrow">خدمات</div>
       <h2>آنچه برای سازمان شما می‌سازیم</h2>
-      <p>مجموعه‌ای از خدمات تخصصی برای تیم‌سازی، توسعه مدیران و فرهنگ یادگیری.</p>
+      <p>از شناخت مسئله‌های تیم تا طراحی روابط کاری و توسعه فرهنگ یادگیری، همراه سازمان شما هستیم.</p>
     </div>
     <div class="offer-grid">
       <div class="offer reveal">
-        <h3>کتابخانه سازمانی سفارشی</h3>
-        <p>گزینش عناوین تخصصی مدیریت، رهبری، فروش و منابع انسانی متناسب با صنعت و سطح بلوغ سازمان شما.</p>
+        <h3>عارضه‌یابی و شناسایی مسئله</h3>
+        <p>بررسی تجربه کارکنان و شیوه همکاری تیم‌ها برای شناسایی گره‌های ارتباطی و رسیدن به مسئله‌های اصلی سازمان.</p>
       </div>
       <div class="offer reveal d1">
-        <h3>برنامه‌های توسعه تیمی</h3>
-        <p>طراحی مسیرهای مطالعاتی گروهی برای هم‌افزایی، گفت‌وگوی حرفه‌ای و حل چالش‌های واقعی تیم.</p>
+        <h3>ترسیم آناتومی ارتباطی تیم‌ها</h3>
+        <p>ترسیم نقشه ارتباطات درون تیم و میان واحدها؛ برای شناخت مسیرهای تعامل، نقاط گسست و فرصت‌های بهبود همکاری.</p>
       </div>
       <div class="offer reveal d2">
-        <h3>باشگاه کتاب‌خوانی مدیران</h3>
-        <p>جلسات منظم برای مدیران با محور کتاب‌های منتخب کسب‌وکار و تسهیلگری تخصصی خوب‌بوک.</p>
+        <h3>تدوین مانیفست ارتباطی کارکنان</h3>
+        <p>تدوین اصول مشترک برای گفت‌وگو، بازخورد، حل اختلاف و همکاری؛ با مشارکت کارکنان و متناسب با فرهنگ سازمان.</p>
       </div>
       <div class="offer reveal d3">
+        <h3>تأسیس کتابخانه سازمانی</h3>
+        <p>طراحی و راه‌اندازی کتابخانه با گزینش کتاب‌های مدیریت، رهبری، فروش و منابع انسانی، متناسب با نیاز سازمان شما.</p>
+      </div>
+      <div class="offer reveal">
+        <h3>برنامه‌های توسعه تیمی</h3>
+        <p>طراحی تجربه‌های یادگیری بر پایه کتاب، بازی و گفت‌وگو برای تقویت مهارت‌های تیمی و حل چالش‌های واقعی کار.</p>
+      </div>
+      <div class="offer reveal d1">
+        <h3>باشگاه کتاب‌خوانی مدیران</h3>
+        <p>برگزاری جلسات منظم با محور کتاب‌های منتخب کسب‌وکار و تسهیلگری خوب‌بوک، برای پیوند دادن آموخته‌ها با تصمیم‌های مدیریتی.</p>
+      </div>
+      <div class="offer reveal d2">
         <h3>گزارش و سنجش اثر</h3>
-        <p>پیگیری مشارکت، بازخورد تیم و شاخص‌های یادگیری برای اطمینان از نتیجه ملموس برنامه‌ها.</p>
+        <p>پیگیری مشارکت، دریافت بازخورد و بررسی شاخص‌های توافق‌شده برای ارزیابی نتایج و بهبود مسیر برنامه‌ها.</p>
+      </div>
+      <div class="offer reveal d3">
+        <h3>سامانه خوب‌بوک بیزینس</h3>
+        <p>نرم‌افزاری برای مدیریت دانش و پشتیبانی از واحد منابع انسانی؛ با سامان‌دهی فرایندهای کاری و استفاده از بازی، مأموریت و پاداش برای افزایش انگیزه و مشارکت کارکنان.</p>
       </div>
     </div>
   </div>
@@ -279,8 +302,13 @@
     <div class="cta reveal">
       <div class="eyebrow" style="background:rgba(255,255,255,.1);color:#ff8a9a">شروع همکاری</div>
       <h2>برای سازمان‌تان برنامه اختصاصی می‌خواهید؟</h2>
-      <p>با تیم خوب‌بوک بیزینس گفتگو کنید تا مسیر مناسب توسعه منابع انسانی مبتنی بر کتاب را طراحی کنیم.</p>
-      <a href="#kb-cta" class="btn btn-primary">ثبت درخواست مشاوره</a>
+      <a class="cta-phone" href="tel:09035358635" dir="ltr">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        09035358635
+      </a>
+      <div class="cta-form">
+        [gravityform id="2" title="false" description="false"]
+      </div>
     </div>
   </div>
 </section>

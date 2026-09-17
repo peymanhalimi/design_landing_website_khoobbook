@@ -253,7 +253,7 @@
 }
 
 /* ---------- Services ---------- */
-.kb-services { padding: 90px 0; }
+.kb-services { padding: 90px 0; background: var(--kb-bg-soft); }
 .kb-services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
 .kb-service-card {
   background: var(--kb-white);
@@ -290,7 +290,7 @@
 @media (max-width: 560px) { .kb-services-grid { grid-template-columns: 1fr; } }
 
 /* ---------- Buy-back ---------- */
-.kb-buyback { padding: 20px 0 90px; }
+.kb-buyback { padding: 90px 0; background: var(--kb-white); }
 .kb-buyback-card {
   position: relative;
   background: linear-gradient(150deg, var(--kb-cream) 0%, #fbf4ea 100%);
@@ -320,7 +320,7 @@
 }
 
 /* ---------- Clients ---------- */
-.kb-clients { padding: 90px 0; background: var(--kb-bg-soft); overflow: hidden; }
+.kb-clients { padding: 90px 0; background: var(--kb-white); overflow: hidden; }
 .kb-clients-marquee {
   margin-top: 8px;
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
@@ -335,16 +335,14 @@
 .kb-client-logo {
   flex: 0 0 auto;
   display: flex; align-items: center; justify-content: center;
-  height: 72px; min-width: 148px; padding: 12px 24px;
+  height: 56px; min-width: 148px; padding: 12px 28px;
   background: var(--kb-white);
   border: 1px solid var(--kb-border); border-radius: var(--kb-radius-sm);
-  transition: border-color .3s var(--kb-ease), box-shadow .3s var(--kb-ease);
+  font-size: 14.5px; font-weight: 700; color: var(--kb-ink-soft);
+  white-space: nowrap;
+  transition: border-color .3s var(--kb-ease), box-shadow .3s var(--kb-ease), color .3s var(--kb-ease);
 }
-.kb-client-logo:hover { border-color: var(--kb-primary-soft); box-shadow: var(--kb-shadow); }
-.kb-client-logo img {
-  max-height: 44px; max-width: 128px; width: auto; height: auto;
-  object-fit: contain;
-}
+.kb-client-logo:hover { border-color: var(--kb-primary-soft); box-shadow: var(--kb-shadow); color: var(--kb-ink); }
 @keyframes kbMarquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
@@ -352,7 +350,7 @@
 @media (prefers-reduced-motion: reduce) { .kb-clients-track { animation: none; } }
 
 /* ---------- Branches ---------- */
-.kb-branches { padding: 90px 0; }
+.kb-branches { padding: 90px 0; background: var(--kb-bg-soft); }
 .kb-branches-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
 .kb-branch-card {
   background: var(--kb-white); border-radius: var(--kb-radius-md); padding: 22px 18px;
@@ -392,63 +390,50 @@
 @media (max-width: 640px) { .kb-testi-card { padding: 32px 24px; } }
 
 /* ---------- CTA Banner ---------- */
-.kb-cta { padding: 20px 0 110px; }
+.kb-cta { padding: 90px 0 110px; background: var(--kb-white); }
 .kb-cta-banner {
   position: relative;
-  background: linear-gradient(135deg, #1b2430 0%, #2a1219 65%, #3a0f1c 100%);
+  background: linear-gradient(145deg, #162033, #1a1520);
   border-radius: var(--kb-radius-lg);
+  padding: 56px 48px;
+  text-align: center;
+  color: #fff;
   overflow: hidden;
-  display: grid; grid-template-columns: 1fr 1fr;
   box-shadow: var(--kb-shadow-lg);
 }
-.kb-cta-info { padding: 60px 54px; color: #fff; position: relative; z-index: 2; }
-.kb-cta-info .kb-eyebrow { background: rgba(255,255,255,.12); color: #fff; }
-.kb-cta-info h2 { font-size: clamp(24px, 3vw, 34px); font-weight: 800; line-height: 1.45; margin: 18px 0 16px; }
-.kb-cta-info p { color: rgba(255,255,255,.68); font-size: 15px; line-height: 1.9; margin: 0 0 28px; max-width: 420px; }
-.kb-cta-list { display: flex; flex-direction: column; gap: 14px; }
-.kb-cta-list li { display: flex; align-items: center; gap: 12px; font-size: 14.5px; color: rgba(255,255,255,.85); }
-.kb-cta-list .kb-icon-wrap {
-  width: 30px; height: 30px; border-radius: 9px; background: rgba(255,255,255,.1);
-  display: flex; align-items: center; justify-content: center; color: #fff; flex-shrink: 0;
+.kb-cta-banner::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(50% 60% at 50% 0%, rgba(179,18,46,.35), transparent 70%);
+  pointer-events: none;
 }
-.kb-cta-form-wrap { display: flex; align-items: center; padding: 40px; position: relative; z-index: 2; }
+.kb-cta-banner > * { position: relative; z-index: 1; }
+.kb-cta-banner .kb-eyebrow {
+  background: rgba(255,255,255,.1);
+  color: #ff8a9a;
+}
+.kb-cta-banner h2 {
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 800;
+  margin: 14px 0 24px;
+  line-height: 1.45;
+}
+.kb-cta-phone {
+  display: inline-flex; align-items: center; gap: 10px;
+  direction: ltr; font-size: clamp(22px, 3vw, 28px); font-weight: 800;
+  color: #fff; letter-spacing: .04em; margin-bottom: 28px;
+  transition: color .3s var(--kb-ease), transform .3s var(--kb-ease);
+}
+.kb-cta-phone:hover { color: #ffb0bc; transform: translateY(-2px); }
+.kb-cta-phone svg { flex-shrink: 0; }
 .kb-cta-form {
-  background: var(--kb-white);
-  border-radius: var(--kb-radius-md);
-  padding: 34px;
-  width: 100%;
-  box-shadow: 0 30px 70px rgba(0,0,0,.35);
+  max-width: 520px; margin: 0 auto; text-align: right;
+  background: var(--kb-white); color: var(--kb-ink);
+  border-radius: var(--kb-radius-md); padding: 28px 24px;
 }
-.kb-cta-form h3 { font-size: 18px; font-weight: 700; margin: 0 0 4px; }
-.kb-cta-form > p { font-size: 13px; color: var(--kb-muted); margin: 0 0 22px; }
-.kb-field { margin-bottom: 14px; }
-.kb-field label { display: block; font-size: 12.5px; font-weight: 700; color: var(--kb-ink-soft); margin-bottom: 7px; }
-.kb-field input, .kb-field select {
-  width: 100%; border: 1px solid var(--kb-border); border-radius: 12px;
-  padding: 13px 14px; font-size: 14px; font-family: inherit; background: var(--kb-bg-soft);
-  color: var(--kb-ink); transition: border-color .3s var(--kb-ease), background .3s var(--kb-ease), box-shadow .3s var(--kb-ease);
-}
-.kb-field input:focus, .kb-field select:focus {
-  outline: none; border-color: var(--kb-primary); background: #fff;
-  box-shadow: 0 0 0 4px var(--kb-primary-soft);
-}
-.kb-form-note { font-size: 12px; color: var(--kb-muted); text-align: center; margin-top: 12px; }
-.kb-form-success {
-  display: none; align-items: center; gap: 10px; background: #e9f8ef; color: #1e7b45;
-  border-radius: 12px; padding: 12px 14px; font-size: 13.5px; font-weight: 600; margin-top: 14px;
-}
-.kb-form-success.kb-show { display: flex; }
-
-.kb-cta-banner .kb-hero-pattern,
-.kb-cta-banner .kb-hero-grain { z-index: 1; opacity: .08; }
-.kb-cta-blob { position: absolute; z-index: 1; border-radius: 50%; filter: blur(60px); opacity: .5; pointer-events: none; }
-.kb-cta-blob-1 { width: 320px; height: 320px; background: var(--kb-primary); top: -120px; right: -80px; }
-.kb-cta-blob-2 { width: 260px; height: 260px; background: #3f5b7a; bottom: -100px; left: 10%; opacity: .3; }
 
 @media (max-width: 900px) {
-  .kb-cta-banner { grid-template-columns: 1fr; }
-  .kb-cta-info { padding: 44px 30px; }
-  .kb-cta-form-wrap { padding: 0 24px 40px; }
+  .kb-cta-banner { padding: 44px 28px; }
 }
 </style>
 
@@ -469,35 +454,23 @@
         <div class="kb-slider-track" data-slider-track>
 
           <div class="kb-slide" data-slide>
-            <div class="kb-eyebrow kb-reveal">پلتفرم کتاب‌خوانی خوب‌بوک</div>
-            <h1 class="kb-hero-title kb-reveal kb-d1">شروع یک <span>عادت خوب</span><br>با خوب‌بوک</h1>
-            <p class="kb-hero-text kb-reveal kb-d2">خوب‌بوک، مرجع انتخاب، خرید و مدیریت کتاب برای افراد، خانواده‌ها و سازمان‌هاست؛ از کتاب‌های تخصصی کسب‌وکار تا کتابخانه کودکان، در کنار شما تا کتاب بعدی.</p>
+            <div class="kb-eyebrow kb-reveal">سامانه سازمانی</div>
+            <h1 class="kb-hero-title kb-reveal kb-d1">خوب‌بوک <span>بیزینس</span></h1>
+            <p class="kb-hero-text kb-reveal kb-d2">نرم‌افزاری برای مدیریت دانش و پشتیبانی از واحد منابع انسانی؛ با سامان‌دهی فرایندهای کاری و استفاده از بازی، مأموریت و پاداش برای افزایش انگیزه و مشارکت کارکنان.</p>
             <div class="kb-hero-actions kb-reveal kb-d3">
-              <a href="#kb-cta" class="kb-btn kb-btn-primary">
-                شروع کنید
+              <a href="kb-business.html" class="kb-btn kb-btn-primary">
+                بیشتر بدانید
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </a>
             </div>
           </div>
 
           <div class="kb-slide" data-slide>
-            <div class="kb-eyebrow">پیشنهاد این هفته</div>
-            <h1 class="kb-hero-title">تا <span>۴۰٪ تخفیف</span><br>روی پرفروش‌های خوب‌بوک</h1>
-            <p class="kb-hero-text">از رمان‌های پرمخاطب تا کتاب‌های تخصصی کسب‌وکار؛ فرصتی محدود برای تکمیل کتابخانه‌ات.</p>
+            <div class="kb-eyebrow">باشگاه کتاب‌خوانی</div>
+            <h1 class="kb-hero-title">مافیای کتاب <span>خوب‌بوک</span></h1>
+            <p class="kb-hero-text">دورهمی‌هایی با حال‌وهوای بازی و روایت برای گروه‌های خاص؛ جایی که کتاب به بهانه گفتگو، هیجان و یادگیری متقابل تبدیل می‌شود.</p>
             <div class="kb-hero-actions">
-              <a href="#kb-services" class="kb-btn kb-btn-primary">
-                مشاهده تخفیف‌ها
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
-            </div>
-          </div>
-
-          <div class="kb-slide" data-slide>
-            <div class="kb-eyebrow">کمپین بازخرید</div>
-            <h1 class="kb-hero-title">کتاب خوانده‌شده بیاور،<br><span>کتاب تازه</span> ببر</h1>
-            <p class="kb-hero-text">با طرح بای‌بک خوب‌بوک، کتاب‌های خوانده‌شده‌ات را به اعتبار خرید تبدیل کن.</p>
-            <div class="kb-hero-actions">
-              <a href="#kb-buyback" class="kb-btn kb-btn-primary">
+              <a href="kb-clubs.html" class="kb-btn kb-btn-primary">
                 بیشتر بدانید
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </a>
@@ -522,24 +495,24 @@
     <div class="kb-section-head kb-reveal">
       <div class="kb-eyebrow">دربارهٔ خوب‌بوک</div>
       <h2>خوب‌بوک دقیقاً چه‌کار می‌کند؟</h2>
-      <p>خوب‌بوک کافه‌کتاب و کتاب‌فروشی تخصصی مدیریت و کسب‌وکار است. ما با ارائه خدمات نوین مبتنی بر کتاب، چالش‌های تیم‌سازی و توسعه منابع انسانی سازمان شما را برطرف می‌کنیم.</p>
+      <p>خوب‌بوک شریک سازمان‌ها در توسعه سرمایه انسانی و بهبود همکاری تیم‌هاست. ما با ترکیب کتاب، بازی، گفت‌وگو و فناوری، راهکارهایی برای تقویت ارتباطات، افزایش انگیزه کارکنان و توسعه فرهنگ یادگیری طراحی و اجرا می‌کنیم.</p>
     </div>
 
     <div class="kb-steps">
       <div class="kb-step kb-reveal">
         <span class="kb-step-num">۰۱</span>
         <h3>می‌شناسیم</h3>
-        <p>با بررسی دقیق ساختار مجموعه شما، نیازها و چالش‌های منابع انسانی و تیم‌تان را شناسایی می‌کنیم.</p>
+        <p>با بررسی ساختار سازمان و شنیدن تجربه مدیران و کارکنان، چالش‌های منابع انسانی و گره‌های ارتباطی تیم‌ها را شناسایی می‌کنیم.</p>
       </div>
       <div class="kb-step kb-reveal kb-d1">
         <span class="kb-step-num">۰۲</span>
         <h3>طراحی و اجرا می‌کنیم</h3>
-        <p>از میان برترین عناوین تخصصی کسب‌وکار، راهکارها و خدمات مبتنی بر کتاب متناسب با سازمان شما را گزینش و پیاده‌سازی می‌کنیم.</p>
+        <p>برای مسئله‌های سازمان شما راهکار متناسب می‌سازیم؛ از برنامه‌های توسعه تیمی و تدوین اصول ارتباطی تا راه‌اندازی کتابخانه سازمانی و سامانه خوب‌بوک بیزینس.</p>
       </div>
       <div class="kb-step kb-reveal kb-d2">
         <span class="kb-step-num">۰۳</span>
         <h3>همراه می‌مانیم</h3>
-        <p>از ارزیابی اثربخشی برنامه‌ها تا استمرار مسیر رشد و یادگیری فردی و تیمی، در کنار شما هستیم.</p>
+        <p>نتایج را می‌سنجیم و با دریافت بازخورد، راهکارها را بهبود می‌دهیم تا یادگیری به تغییر در رفتار، همکاری و عملکرد تیم‌ها تبدیل شود.</p>
       </div>
     </div>
   </div>
@@ -594,49 +567,7 @@
   </div>
 </section>
 
-<!-- ============ 4. طرح ویژه بای‌بک ============ -->
-<section class="kb-buyback" id="kb-buyback">
-  <div class="kb-container">
-    <div class="kb-buyback-card kb-reveal">
-      <div class="kb-buyback-info">
-        <div class="kb-eyebrow">مزیت رقابتی خوب‌بوک</div>
-        <h2>بای‌بک خوب‌بوک؛ کتابی که خواندی، ارزشش را نگه می‌دارد</h2>
-        <p>کتاب‌هایی را که از خوب‌بوک خریده‌ای و خوانده‌ای برگردان؛ با تحویل کتاب‌ها، معادل ۷۰٪ قیمت پشت جلد در کیف پول شما شارژ می‌شود تا بتوانید کتاب‌های بعدی‌تان را به‌راحتی خریداری کنید.</p>
-
-        <div class="kb-buyback-steps">
-          <div class="kb-buyback-step">
-            <span>۰۱</span>
-            <div>
-              <strong>ثبت درخواست و تحویل کتاب‌ها</strong>
-              <p>کتاب‌های خریداری‌شده را به‌صورت آنلاین یا با مراجعه به نزدیک‌ترین شعبه تحویل دهید.</p>
-            </div>
-          </div>
-          <div class="kb-buyback-step">
-            <span>۰۲</span>
-            <div>
-              <strong>بررسی و تأیید سلامت کتاب</strong>
-              <p>کتاب‌های برگشتی توسط کارشناسان خوب‌بوک بررسی و تأیید می‌شوند.</p>
-            </div>
-          </div>
-          <div class="kb-buyback-step">
-            <span>۰۳</span>
-            <div>
-              <strong>دریافت اعتباری معادل ۷۰٪ قیمت پشت جلد</strong>
-              <p>کیف پول شما به‌اندازه ۷۰٪ ارزش کتاب شارژ می‌شود و می‌توانید بلافاصله کتاب جدید خرید کنید.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="kb-buyback-stat">
-        <strong>۷۰٪</strong>
-        <span>اعتبار معادل قیمت پشت جلد در کیف پول</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 5. مشتریان و شرکای سازمانی ============ -->
+<!-- ============ 4. مشتریان و شرکای سازمانی ============ -->
 <section class="kb-clients" id="kb-clients">
   <div class="kb-container">
     <div class="kb-section-head kb-reveal">
@@ -648,71 +579,27 @@
 
   <div class="kb-clients-marquee">
     <div class="kb-clients-track">
-      <div class="kb-client-logo"><img src="logos/آهار.png" alt="آهار" loading="lazy"></div>
-      <div class="kb-client-logo"><img src="logos/زعفران مصطفوی.jpg" alt="زعفران مصطفوی" loading="lazy"></div>
-      <div class="kb-client-logo"><img src="logos/سلام ساختمان.png" alt="سلام ساختمان" loading="lazy"></div>
-      <div class="kb-client-logo"><img src="logos/سی فایو.png" alt="سی فایو" loading="lazy"></div>
-      <div class="kb-client-logo"><img src="logos/شهرداری مشهد.png" alt="شهرداری مشهد" loading="lazy"></div>
-      <div class="kb-client-logo"><img src="logos/همتاپی.png" alt="همتاپی" loading="lazy"></div>
-      <div class="kb-client-logo"><img src="logos/پدیده شاندیز.png" alt="پدیده شاندیز" loading="lazy"></div>
-      <div class="kb-client-logo"><img src="logos/گروه نرم افزاری باران.png" alt="گروه نرم‌افزاری باران" loading="lazy"></div>
-      <div class="kb-client-logo" aria-hidden="true"><img src="logos/آهار.png" alt="" loading="lazy"></div>
-      <div class="kb-client-logo" aria-hidden="true"><img src="logos/زعفران مصطفوی.jpg" alt="" loading="lazy"></div>
-      <div class="kb-client-logo" aria-hidden="true"><img src="logos/سلام ساختمان.png" alt="" loading="lazy"></div>
-      <div class="kb-client-logo" aria-hidden="true"><img src="logos/سی فایو.png" alt="" loading="lazy"></div>
-      <div class="kb-client-logo" aria-hidden="true"><img src="logos/شهرداری مشهد.png" alt="" loading="lazy"></div>
-      <div class="kb-client-logo" aria-hidden="true"><img src="logos/همتاپی.png" alt="" loading="lazy"></div>
-      <div class="kb-client-logo" aria-hidden="true"><img src="logos/پدیده شاندیز.png" alt="" loading="lazy"></div>
-      <div class="kb-client-logo" aria-hidden="true"><img src="logos/گروه نرم افزاری باران.png" alt="" loading="lazy"></div>
+      <div class="kb-client-logo">آهار</div>
+      <div class="kb-client-logo">زعفران مصطفوی</div>
+      <div class="kb-client-logo">سلام ساختمان</div>
+      <div class="kb-client-logo">سی فایو</div>
+      <div class="kb-client-logo">شهرداری مشهد</div>
+      <div class="kb-client-logo">همتاپی</div>
+      <div class="kb-client-logo">پدیده شاندیز</div>
+      <div class="kb-client-logo">گروه نرم‌افزاری باران</div>
+      <div class="kb-client-logo" aria-hidden="true">آهار</div>
+      <div class="kb-client-logo" aria-hidden="true">زعفران مصطفوی</div>
+      <div class="kb-client-logo" aria-hidden="true">سلام ساختمان</div>
+      <div class="kb-client-logo" aria-hidden="true">سی فایو</div>
+      <div class="kb-client-logo" aria-hidden="true">شهرداری مشهد</div>
+      <div class="kb-client-logo" aria-hidden="true">همتاپی</div>
+      <div class="kb-client-logo" aria-hidden="true">پدیده شاندیز</div>
+      <div class="kb-client-logo" aria-hidden="true">گروه نرم‌افزاری باران</div>
     </div>
   </div>
 </section>
 
-<!-- ============ 6. شعب و مراکز حضوری ============ -->
-<section class="kb-branches" id="kb-branches">
-  <div class="kb-container">
-    <div class="kb-section-head kb-reveal">
-      <div class="kb-eyebrow">خوب‌بوک نزدیک شما</div>
-      <h2>شعب و مراکز حضوری خوب‌بوک</h2>
-      <p>برای تجربه انتخاب کتاب و شرکت در رویدادهای فرهنگی، به نزدیک‌ترین شعبه خوب‌بوک سر بزنید.</p>
-    </div>
-
-    <div class="kb-branches-grid">
-      <div class="kb-branch-card kb-reveal">
-        <span class="kb-icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="currentColor" stroke-width="1.7"/></svg></span>
-        <h3>کتابفروشی تخصصی مدیریت و کسب‌وکار</h3>
-        <p class="kb-branch-addr">مشهد، بلوار کوثر، میدان پژوهش، کارخانه نوآوری</p>
-        <a href="https://www.google.com/maps/search/?api=1&query=%D9%85%D8%B4%D9%87%D8%AF%20%D8%A8%D9%84%D9%88%D8%A7%D8%B1%20%DA%A9%D9%88%D8%AB%D8%B1%20%D9%85%DB%8C%D8%AF%D8%A7%D9%86%20%D9%BE%DA%98%D9%88%D9%87%D8%B4%20%DA%A9%D8%A7%D8%B1%D8%AE%D8%A7%D9%86%D9%87%20%D9%86%D9%88%D8%A2%D9%88%D8%B1%DB%8C" class="kb-branch-link" target="_blank" rel="noopener">مسیریابی</a>
-      </div>
-      <div class="kb-branch-card kb-reveal kb-d1">
-        <span class="kb-icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="currentColor" stroke-width="1.7"/></svg></span>
-        <h3>کتابفروشی تخصصی کودک و نوجوان</h3>
-        <p class="kb-branch-addr">مشهد، میدان جانباز، مجتمع پاژ، طبقه -۱</p>
-        <a href="kb-junior.html" class="kb-branch-link">صفحه جونیور</a>
-      </div>
-      <div class="kb-branch-card kb-reveal kb-d2">
-        <span class="kb-icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="currentColor" stroke-width="1.7"/></svg></span>
-        <h3>کافه‌کتاب تخصصی مدیریت و کسب‌وکار</h3>
-        <p class="kb-branch-addr">مشهد، بلوار کوثر، میدان پژوهش، کارخانه نوآوری</p>
-        <a href="kb-cafe.html" class="kb-branch-link">صفحه کافه‌کتاب</a>
-      </div>
-      <div class="kb-branch-card kb-reveal kb-d3">
-        <span class="kb-icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="currentColor" stroke-width="1.7"/></svg></span>
-        <h3>کتابفروشی، شعبه عمومی</h3>
-        <p class="kb-branch-addr">مشهد، بلوار آخوند خراسانی، اخوند خراسانی ۵، خانه پیشه‌وران، کافه حوالی</p>
-        <a href="https://www.google.com/maps/search/?api=1&query=%D9%85%D8%B4%D9%87%D8%AF%20%D8%A8%D9%84%D9%88%D8%A7%D8%B1%20%D8%A2%D8%AE%D9%88%D9%86%D8%AF%20%D8%AE%D8%B1%D8%A7%D8%B3%D8%A7%D9%86%DB%8C%20%D8%AE%D8%A7%D9%86%D9%87%20%D9%BE%DB%8C%D8%B4%D9%87%E2%80%8C%D9%88%D8%B1%D8%A7%D9%86" class="kb-branch-link" target="_blank" rel="noopener">مسیریابی</a>
-      </div>
-      <div class="kb-branch-card kb-reveal">
-        <span class="kb-icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="currentColor" stroke-width="1.7"/></svg></span>
-        <h3>کتابفروشی، شعبه عمومی</h3>
-        <p class="kb-branch-addr">مشهد، بلوار امام خمینی، امام خمینی ۲۶، کافه اهالی</p>
-        <a href="https://www.google.com/maps/search/?api=1&query=%D9%85%D8%B4%D9%87%D8%AF%20%D8%A8%D9%84%D9%88%D8%A7%D8%B1%20%D8%A7%D9%85%D8%A7%D9%85%20%D8%AE%D9%85%DB%8C%D9%86%DB%8C%20%D8%A7%D9%85%D8%A7%D9%85%20%D8%AE%D9%85%DB%8C%D9%86%DB%8C%2026" class="kb-branch-link" target="_blank" rel="noopener">مسیریابی</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 7. نظرات مدیران ============ -->
+<!-- ============ 5. نظرات مدیران ============ -->
 <section class="kb-testi" id="kb-testi">
   <div class="kb-container">
     <div class="kb-section-head kb-reveal">
@@ -767,63 +654,104 @@
   </div>
 </section>
 
-<!-- ============ 10. فرم تعاملی و تماس با ما ============ -->
+<!-- ============ 6. طرح ویژه بای‌بک ============ -->
+<section class="kb-buyback" id="kb-buyback">
+  <div class="kb-container">
+    <div class="kb-buyback-card kb-reveal">
+      <div class="kb-buyback-info">
+        <div class="kb-eyebrow">بای‌بک خوب بوک چیست؟</div>
+        <h2>کتابی که خواندی، ارزشش را نگه می‌دارد</h2>
+        <p>کتاب‌هایی را که از خوب‌بوک خریده‌ای و خوانده‌ای برگردان؛ با تحویل کتاب‌ها، معادل ۷۰٪ قیمت پشت جلد در کیف پول شما شارژ می‌شود تا بتوانید کتاب‌های بعدی‌تان را به‌راحتی خریداری کنید.</p>
+
+        <div class="kb-buyback-steps">
+          <div class="kb-buyback-step">
+            <span>۰۱</span>
+            <div>
+              <strong>ثبت درخواست و تحویل کتاب‌ها</strong>
+              <p>کتاب‌های خریداری‌شده را به‌صورت آنلاین یا با مراجعه به نزدیک‌ترین شعبه تحویل دهید.</p>
+            </div>
+          </div>
+          <div class="kb-buyback-step">
+            <span>۰۲</span>
+            <div>
+              <strong>بررسی و تأیید سلامت کتاب</strong>
+              <p>کتاب‌های برگشتی توسط کارشناسان خوب‌بوک بررسی و تأیید می‌شوند.</p>
+            </div>
+          </div>
+          <div class="kb-buyback-step">
+            <span>۰۳</span>
+            <div>
+              <strong>دریافت اعتباری معادل ۷۰٪ قیمت پشت جلد</strong>
+              <p>کیف پول شما به‌اندازه ۷۰٪ ارزش کتاب شارژ می‌شود و می‌توانید بلافاصله کتاب جدید خرید کنید.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kb-buyback-stat">
+        <strong>۷۰٪</strong>
+        <span>اعتبار معادل قیمت پشت جلد در کیف پول</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. شعب و مراکز حضوری ============ -->
+<section class="kb-branches" id="kb-branches">
+  <div class="kb-container">
+    <div class="kb-section-head kb-reveal">
+      <div class="kb-eyebrow">خوب‌بوک نزدیک شما</div>
+      <h2>شعب و مراکز حضوری خوب‌بوک</h2>
+      <p>برای تجربه انتخاب کتاب و شرکت در رویدادهای فرهنگی، به نزدیک‌ترین شعبه خوب‌بوک سر بزنید.</p>
+    </div>
+
+    <div class="kb-branches-grid">
+      <div class="kb-branch-card kb-reveal">
+        <span class="kb-icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="currentColor" stroke-width="1.7"/></svg></span>
+        <h3>کتابفروشی تخصصی مدیریت و کسب‌وکار</h3>
+        <p class="kb-branch-addr">مشهد، بلوار کوثر، میدان پژوهش، کارخانه نوآوری</p>
+        <a href="https://www.google.com/maps/search/?api=1&query=%D9%85%D8%B4%D9%87%D8%AF%20%D8%A8%D9%84%D9%88%D8%A7%D8%B1%20%DA%A9%D9%88%D8%AB%D8%B1%20%D9%85%DB%8C%D8%AF%D8%A7%D9%86%20%D9%BE%DA%98%D9%88%D9%87%D8%B4%20%DA%A9%D8%A7%D8%B1%D8%AE%D8%A7%D9%86%D9%87%20%D9%86%D9%88%D8%A2%D9%88%D8%B1%DB%8C" class="kb-branch-link" target="_blank" rel="noopener">مسیریابی</a>
+      </div>
+      <div class="kb-branch-card kb-reveal kb-d1">
+        <span class="kb-icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="currentColor" stroke-width="1.7"/></svg></span>
+        <h3>کتابفروشی تخصصی کودک و نوجوان</h3>
+        <p class="kb-branch-addr">مشهد، میدان جانباز، مجتمع پاژ، طبقه -۱</p>
+        <a href="kb-junior.html" class="kb-branch-link">صفحه جونیور</a>
+      </div>
+      <div class="kb-branch-card kb-reveal kb-d2">
+        <span class="kb-icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="currentColor" stroke-width="1.7"/></svg></span>
+        <h3>کافه‌کتاب تخصصی مدیریت و کسب‌وکار</h3>
+        <p class="kb-branch-addr">مشهد، بلوار کوثر، میدان پژوهش، کارخانه نوآوری</p>
+        <a href="kb-cafe.html" class="kb-branch-link">صفحه کافه‌کتاب</a>
+      </div>
+      <div class="kb-branch-card kb-reveal kb-d3">
+        <span class="kb-icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="currentColor" stroke-width="1.7"/></svg></span>
+        <h3>کتابفروشی، شعبه عمومی</h3>
+        <p class="kb-branch-addr">مشهد، بلوار آخوند خراسانی، اخوند خراسانی ۵، خانه پیشه‌وران، کافه حوالی</p>
+        <a href="https://www.google.com/maps/search/?api=1&query=%D9%85%D8%B4%D9%87%D8%AF%20%D8%A8%D9%84%D9%88%D8%A7%D8%B1%20%D8%A2%D8%AE%D9%88%D9%86%D8%AF%20%D8%AE%D8%B1%D8%A7%D8%B3%D8%A7%D9%86%DB%8C%20%D8%AE%D8%A7%D9%86%D9%87%20%D9%BE%DB%8C%D8%B4%D9%87%E2%80%8C%D9%88%D8%B1%D8%A7%D9%86" class="kb-branch-link" target="_blank" rel="noopener">مسیریابی</a>
+      </div>
+      <div class="kb-branch-card kb-reveal">
+        <span class="kb-icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="currentColor" stroke-width="1.7"/></svg></span>
+        <h3>کتابفروشی، شعبه عمومی</h3>
+        <p class="kb-branch-addr">مشهد، بلوار امام خمینی، امام خمینی ۲۶، کافه اهالی</p>
+        <a href="https://www.google.com/maps/search/?api=1&query=%D9%85%D8%B4%D9%87%D8%AF%20%D8%A8%D9%84%D9%88%D8%A7%D8%B1%20%D8%A7%D9%85%D8%A7%D9%85%20%D8%AE%D9%85%DB%8C%D9%86%DB%8C%20%D8%A7%D9%85%D8%A7%D9%85%20%D8%AE%D9%85%DB%8C%D9%86%DB%8C%2026" class="kb-branch-link" target="_blank" rel="noopener">مسیریابی</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8. فرم تعاملی و تماس با ما ============ -->
 <section class="kb-cta" id="kb-cta">
   <div class="kb-container">
     <div class="kb-cta-banner kb-reveal">
-      <div class="kb-hero-pattern" aria-hidden="true"></div>
-      <div class="kb-hero-grain" aria-hidden="true"></div>
-      <span class="kb-cta-blob kb-cta-blob-1"></span>
-      <span class="kb-cta-blob kb-cta-blob-2"></span>
-
-      <div class="kb-cta-info">
-        <div class="kb-eyebrow">همکاری با خوب‌بوک</div>
-        <h2>کتابخانه شخصی یا سازمانی خود را با خوب‌بوک بسازید</h2>
-        <p>فرم زیر را تکمیل کنید تا کارشناسان خوب‌بوک برای طراحی بسته کتاب متناسب با نیاز شما تماس بگیرند.</p>
-        <ul class="kb-cta-list">
-          <li><span class="kb-icon-wrap"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> مشاوره رایگان انتخاب کتاب</li>
-          <li><span class="kb-icon-wrap"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> تخفیف ویژه خرید عمده و سازمانی</li>
-          <li><span class="kb-icon-wrap"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> تحویل و چیدمان رایگان کتابخانه</li>
-        </ul>
-      </div>
-
-      <div class="kb-cta-form-wrap">
-        <form class="kb-cta-form" id="kbCtaForm" action="https://formsubmit.co/ajax/phalimi92@gmail.com" method="POST" novalidate>
-          <h3>درخواست مشاوره رایگان</h3>
-          <p>در کمتر از یک روز کاری با شما تماس می‌گیریم</p>
-
-          <input type="hidden" name="_subject" value="درخواست مشاوره جدید از سایت خوب‌بوک">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-
-          <div class="kb-field">
-            <label for="kbName">نام و نام خانوادگی</label>
-            <input id="kbName" type="text" name="نام" placeholder="مثلاً امیر رضایی" required>
-          </div>
-          <div class="kb-field">
-            <label for="kbPhone">شماره تماس</label>
-            <input id="kbPhone" type="tel" name="شماره تماس" placeholder="09xxxxxxxxx" pattern="^09\d{9}$" required>
-          </div>
-          <div class="kb-field">
-            <label for="kbService">نوع خدمت مورد نیاز</label>
-            <select id="kbService" name="نوع خدمت" required>
-              <option value="" disabled selected>یک گزینه انتخاب کنید</option>
-              <option value="خوب‌بوک بیزینس">خوب‌بوک بیزینس</option>
-              <option value="خوب‌بوک جونیور">خوب‌بوک جونیور</option>
-              <option value="باشگاه کتابخوانی">باشگاه کتابخوانی</option>
-              <option value="فروشگاه‌های خوب‌بوک">فروشگاه‌های خوب‌بوک</option>
-              <option value="بازخرید کتاب (بای‌بک)">بازخرید کتاب (بای‌بک)</option>
-            </select>
-          </div>
-
-          <button type="submit" class="kb-btn kb-btn-primary kb-btn-block">ارسال درخواست</button>
-          <p class="kb-form-note">با ارسال فرم، قوانین حریم خصوصی خوب‌بوک را می‌پذیرید.</p>
-          <div class="kb-form-success" id="kbFormSuccess">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#1e7b45" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            درخواست شما با موفقیت ثبت شد.
-          </div>
-        </form>
+      <div class="kb-eyebrow">شروع همکاری</div>
+      <h2>کتابخانه شخصی یا سازمانی خود را با خوب‌بوک بسازید</h2>
+      <a class="kb-cta-phone" href="tel:09035358635" dir="ltr">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        09035358635
+      </a>
+      <div class="kb-cta-form">
+        [gravityform id="2" title="false" description="false"]
       </div>
     </div>
   </div>
@@ -928,41 +856,6 @@
 
   var testiSlider = root.querySelector('#kbTestiSlider');
   if (testiSlider) createSlider(testiSlider, { interval: 5500 });
-
-  /* ---------- CTA form → email via FormSubmit ---------- */
-  var form = root.querySelector('#kbCtaForm');
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      if (!form.checkValidity()) { form.reportValidity(); return; }
-
-      var btn = form.querySelector('button[type="submit"]');
-      var success = root.querySelector('#kbFormSuccess');
-      var originalText = btn.textContent;
-      btn.disabled = true;
-      btn.textContent = 'در حال ارسال...';
-
-      fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { Accept: 'application/json' }
-      })
-        .then(function (res) {
-          if (!res.ok) throw new Error('send-failed');
-          return res.json();
-        })
-        .then(function () {
-          success.classList.add('kb-show');
-          btn.textContent = 'ارسال شد ✓';
-          form.reset();
-        })
-        .catch(function () {
-          btn.disabled = false;
-          btn.textContent = originalText;
-          alert('ارسال انجام نشد. لطفاً چند لحظه بعد دوباره تلاش کنید.');
-        });
-    });
-  }
 
   /* ---------- WebGL hero particles ---------- */
   var canvas = root.querySelector('#kbHeroCanvas');
