@@ -1,0 +1,273 @@
+<div class="kb-contact-scope" dir="rtl" lang="fa">
+<style>
+.kb-contact-scope {
+  --ink: #121820;
+  --ink-soft: #3d4a5c;
+  --muted: #7a8494;
+  --bg: #f4f6f8;
+  --bg-soft: #eef1f4;
+  --white: #fff;
+  --accent: #b3122e;
+  --accent-dark: #7c0c20;
+  --navy: #162033;
+  --line: #e4e8ee;
+  --ease: cubic-bezier(.22,1,.36,1);
+  font-family: inherit;
+  background: var(--bg);
+  color: var(--ink);
+  overflow-x: hidden;
+  line-height: 1.7;
+}
+
+.kb-contact-scope *,
+.kb-contact-scope *::before,
+.kb-contact-scope *::after { box-sizing: border-box; }
+
+.kb-contact-scope a { text-decoration: none; color: inherit; }
+.kb-contact-scope ul { margin: 0; padding: 0; list-style: none; }
+
+.kb-contact-scope .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+.kb-contact-scope .hero {
+  position: relative; min-height: 60vh; min-height: 60dvh;
+  display: flex; align-items: center; overflow: hidden;
+  background:
+    radial-gradient(90% 80% at 80% 10%, rgba(179,18,46,.35) 0%, transparent 55%),
+    radial-gradient(70% 60% at 10% 80%, rgba(62,90,130,.3) 0%, transparent 50%),
+    linear-gradient(160deg, #0e1522 0%, #162033 45%, #1a1520 100%);
+  color: #fff;
+}
+.kb-contact-scope .hero-grid {
+  position: absolute; inset: 0; opacity: .12; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse at 50% 40%, #000 20%, transparent 75%);
+  animation: kbContactGridDrift 40s linear infinite;
+}
+@keyframes kbContactGridDrift {
+  from { transform: translateY(0); }
+  to { transform: translateY(64px); }
+}
+.kb-contact-scope .hero-orb {
+  position: absolute; width: 480px; height: 480px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(179,18,46,.28), transparent 70%);
+  top: -100px; left: -60px; filter: blur(20px); pointer-events: none;
+  animation: kbContactOrbPulse 8s ease-in-out infinite;
+}
+@keyframes kbContactOrbPulse {
+  0%, 100% { opacity: .7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+.kb-contact-scope .hero-inner { position: relative; z-index: 2; padding: 100px 24px 80px; max-width: 720px; }
+.kb-contact-scope .hero-brand {
+  display: inline-block; font-size: clamp(42px, 7vw, 72px); font-weight: 800;
+  line-height: 1.15; margin: 0 0 18px;
+  background: linear-gradient(135deg, #fff 40%, #ffb0bc);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.kb-contact-scope .hero-lead {
+  font-size: clamp(20px, 3vw, 28px); font-weight: 700;
+  line-height: 1.55; margin: 0; color: rgba(255,255,255,.92);
+  max-width: 560px;
+}
+
+.kb-contact-scope .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+.kb-contact-scope .reveal.in { opacity: 1; transform: none; }
+.kb-contact-scope .reveal.d1 { transition-delay: .08s; }
+.kb-contact-scope .reveal.d2 { transition-delay: .16s; }
+.kb-contact-scope .reveal.d3 { transition-delay: .24s; }
+@media (prefers-reduced-motion: reduce) {
+  .kb-contact-scope .reveal { opacity: 1; transform: none; }
+  .kb-contact-scope .hero-grid,
+  .kb-contact-scope .hero-orb { animation: none; }
+}
+
+.kb-contact-scope .section { padding: 90px 0; }
+.kb-contact-scope .section-soft { background: var(--bg-soft); }
+.kb-contact-scope .section-white { background: var(--white); }
+
+.kb-contact-scope .eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #fbe7ea; color: var(--accent); font-weight: 700; font-size: 13px;
+  padding: 7px 16px; border-radius: 999px;
+}
+.kb-contact-scope .eyebrow::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+.kb-contact-scope .head { text-align: center; max-width: 640px; margin: 0 auto 48px; }
+.kb-contact-scope .head h2 { font-size: clamp(26px, 3.4vw, 38px); font-weight: 800; line-height: 1.35; margin: 16px 0 12px; }
+.kb-contact-scope .head p { color: var(--ink-soft); font-size: 16px; line-height: 1.9; margin: 0; }
+
+.kb-contact-scope .cta {
+  background: linear-gradient(145deg, #162033, #1a1520);
+  border-radius: 28px; padding: 56px 48px; text-align: center; color: #fff;
+  position: relative; overflow: hidden;
+}
+.kb-contact-scope .cta::after {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(50% 60% at 50% 0%, rgba(179,18,46,.35), transparent 70%);
+  pointer-events: none;
+}
+.kb-contact-scope .cta > * { position: relative; z-index: 1; }
+.kb-contact-scope .cta h2 { font-size: clamp(24px, 3vw, 34px); font-weight: 800; margin: 14px 0 24px; }
+.kb-contact-scope .cta-phone {
+  display: inline-flex; align-items: center; gap: 10px;
+  direction: ltr; font-size: clamp(22px, 3vw, 28px); font-weight: 800;
+  color: #fff; letter-spacing: .04em; margin-bottom: 28px;
+  transition: color .3s var(--ease), transform .3s var(--ease);
+}
+.kb-contact-scope .cta-phone:hover { color: #ffb0bc; transform: translateY(-2px); }
+.kb-contact-scope .cta-phone svg { flex-shrink: 0; }
+.kb-contact-scope .cta-form {
+  max-width: 520px; margin: 0 auto; text-align: right;
+  background: var(--white); color: var(--ink);
+  border-radius: 20px; padding: 28px 24px;
+}
+
+.kb-contact-scope .channels {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+}
+.kb-contact-scope .channel h3 { font-size: 17px; font-weight: 700; margin: 0 0 8px; }
+.kb-contact-scope .channel p { font-size: 14.5px; color: var(--ink-soft); line-height: 1.85; margin: 0 0 12px; }
+.kb-contact-scope .channel a {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 14.5px; font-weight: 700; color: var(--accent);
+  transition: gap .3s var(--ease);
+}
+.kb-contact-scope .channel a:hover { gap: 10px; }
+
+.kb-contact-scope .branches { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px 32px; }
+.kb-contact-scope .branch {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+}
+.kb-contact-scope .branch h3 { font-size: 16px; font-weight: 700; margin: 0 0 8px; }
+.kb-contact-scope .branch p { font-size: 14px; color: var(--ink-soft); line-height: 1.8; margin: 0 0 12px; }
+.kb-contact-scope .branch a {
+  font-size: 13.5px; font-weight: 700; color: var(--accent);
+}
+
+@media (max-width: 900px) {
+  .kb-contact-scope .hero-inner { padding: 90px 32px 70px; }
+  .kb-contact-scope .cta { padding: 44px 28px; }
+  .kb-contact-scope .channels { grid-template-columns: 1fr; gap: 28px; }
+  .kb-contact-scope .branches { grid-template-columns: 1fr; }
+}
+</style>
+
+<section class="hero">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-orb" aria-hidden="true"></div>
+  <div class="wrap hero-inner">
+    <h1 class="hero-brand reveal">تماس با ما</h1>
+    <p class="hero-lead reveal d1">برای مشاوره، همکاری یا بازدید از شعب، در کنار شما هستیم</p>
+  </div>
+</section>
+
+<section class="section section-white">
+  <div class="wrap">
+    <div class="cta reveal">
+      <div class="eyebrow" style="background:rgba(255,255,255,.1);color:#ff8a9a">شروع گفتگو</div>
+      <h2>پیام بگذارید یا تماس بگیرید</h2>
+      <a class="cta-phone" href="tel:09035358635" dir="ltr">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        09035358635
+      </a>
+      <div class="cta-form">
+        [gravityform id="2" title="false" description="false"]
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-soft">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eyebrow">راه‌های ارتباط</div>
+      <h2>هر مسیر همکاری، یک نقطه تماس</h2>
+      <p>بسته به نیازتان، سریع‌ترین راه را انتخاب کنید.</p>
+    </div>
+    <div class="channels">
+      <div class="channel reveal">
+        <h3>مشاوره سازمانی</h3>
+        <p>برای خوب‌بوک بیزینس، کتابخانه سازمانی و سامانه منابع انسانی.</p>
+        <a href="kb-business.html">صفحه بیزینس
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="channel reveal d1">
+        <h3>باشگاه‌های کتاب‌خوانی</h3>
+        <p>برای عضویت در باشگاه مدیران یا مافیای کتاب.</p>
+        <a href="kb-clubs.html">صفحه باشگاه‌ها
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="channel reveal d2">
+        <h3>خوب‌بوک جونیور</h3>
+        <p>برای رویدادهای نوجوانان در مدرسه، باشگاه یا مجموعه شما.</p>
+        <a href="kb-junior.html">صفحه جونیور
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-white">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eyebrow">شعب حضوری</div>
+      <h2>خوب‌بوک نزدیک شما</h2>
+      <p>برای خرید کتاب، مطالعه حضوری یا شرکت در رویدادها به نزدیک‌ترین شعبه سر بزنید.</p>
+    </div>
+    <div class="branches">
+      <div class="branch reveal">
+        <h3>کتابفروشی تخصصی مدیریت و کسب‌وکار</h3>
+        <p>مشهد، بلوار کوثر، میدان پژوهش، کارخانه نوآوری</p>
+        <a href="https://www.google.com/maps/search/?api=1&query=%D9%85%D8%B4%D9%87%D8%AF%20%D8%A8%D9%84%D9%88%D8%A7%D8%B1%20%DA%A9%D9%88%D8%AB%D8%B1%20%D9%85%DB%8C%D8%AF%D8%A7%D9%86%20%D9%BE%DA%98%D9%88%D9%87%D8%B4%20%DA%A9%D8%A7%D8%B1%D8%AE%D8%A7%D9%86%D9%87%20%D9%86%D9%88%D8%A2%D9%88%D8%B1%DB%8C" target="_blank" rel="noopener">مسیریابی</a>
+      </div>
+      <div class="branch reveal d1">
+        <h3>کتابفروشی تخصصی کودک و نوجوان</h3>
+        <p>مشهد، میدان جانباز، مجتمع پاژ، طبقه -۱</p>
+        <a href="kb-junior.html">صفحه جونیور</a>
+      </div>
+      <div class="branch reveal d2">
+        <h3>کتابفروشی، شعبه عمومی — خانه پیشه‌وران</h3>
+        <p>مشهد، بلوار آخوند خراسانی، اخوند خراسانی ۵، خانه پیشه‌وران، کافه حوالی</p>
+        <a href="https://www.google.com/maps/search/?api=1&query=%D9%85%D8%B4%D9%87%D8%AF%20%D8%A8%D9%84%D9%88%D8%A7%D8%B1%20%D8%A2%D8%AE%D9%88%D9%86%D8%AF%20%D8%AE%D8%B1%D8%A7%D8%B3%D8%A7%D9%86%DB%8C%20%D8%AE%D8%A7%D9%86%D9%87%20%D9%BE%DB%8C%D8%B4%D9%87%E2%80%8C%D9%88%D8%B1%D8%A7%D9%86" target="_blank" rel="noopener">مسیریابی</a>
+      </div>
+      <div class="branch reveal">
+        <h3>کتابفروشی، شعبه عمومی — کافه اهالی</h3>
+        <p>مشهد، بلوار امام خمینی، امام خمینی ۲۶، کافه اهالی</p>
+        <a href="https://www.google.com/maps/search/?api=1&query=%D9%85%D8%B4%D9%87%D8%AF%20%D8%A8%D9%84%D9%88%D8%A7%D8%B1%20%D8%A7%D9%85%D8%A7%D9%85%20%D8%AE%D9%85%DB%8C%D9%86%DB%8C%20%D8%A7%D9%85%D8%A7%D9%85%20%D8%AE%D9%85%DB%8C%D9%86%DB%8C%2026" target="_blank" rel="noopener">مسیریابی</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var root = document.currentScript ? document.currentScript.previousElementSibling : null;
+  while (root && !root.classList.contains('kb-contact-scope')) {
+    root = root.previousElementSibling;
+  }
+  if (!root) root = document.querySelector('.kb-contact-scope');
+  if (!root) return;
+
+  var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!prefersReduced && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    root.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+  } else {
+    root.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+  }
+})();
+</script>
+</div>

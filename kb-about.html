@@ -1,0 +1,292 @@
+<div class="kb-about-scope" dir="rtl" lang="fa">
+<style>
+.kb-about-scope {
+  --ink: #121820;
+  --ink-soft: #3d4a5c;
+  --muted: #7a8494;
+  --bg: #f4f6f8;
+  --bg-soft: #eef1f4;
+  --white: #fff;
+  --accent: #b3122e;
+  --accent-dark: #7c0c20;
+  --navy: #162033;
+  --line: #e4e8ee;
+  --ease: cubic-bezier(.22,1,.36,1);
+  font-family: inherit;
+  background: var(--bg);
+  color: var(--ink);
+  overflow-x: hidden;
+  line-height: 1.7;
+}
+
+.kb-about-scope *,
+.kb-about-scope *::before,
+.kb-about-scope *::after { box-sizing: border-box; }
+
+.kb-about-scope a { text-decoration: none; color: inherit; }
+.kb-about-scope ul { margin: 0; padding: 0; list-style: none; }
+
+.kb-about-scope .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+.kb-about-scope .hero {
+  position: relative; min-height: 72vh; min-height: 72dvh;
+  display: flex; align-items: center; overflow: hidden;
+  background:
+    radial-gradient(90% 80% at 80% 10%, rgba(179,18,46,.35) 0%, transparent 55%),
+    radial-gradient(70% 60% at 10% 80%, rgba(62,90,130,.3) 0%, transparent 50%),
+    linear-gradient(160deg, #0e1522 0%, #162033 45%, #1a1520 100%);
+  color: #fff;
+}
+.kb-about-scope .hero-grid {
+  position: absolute; inset: 0; opacity: .12; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse at 50% 40%, #000 20%, transparent 75%);
+  animation: kbAboutGridDrift 40s linear infinite;
+}
+@keyframes kbAboutGridDrift {
+  from { transform: translateY(0); }
+  to { transform: translateY(64px); }
+}
+.kb-about-scope .hero-orb {
+  position: absolute; width: 480px; height: 480px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(179,18,46,.28), transparent 70%);
+  top: -100px; left: -60px; filter: blur(20px); pointer-events: none;
+  animation: kbAboutOrbPulse 8s ease-in-out infinite;
+}
+@keyframes kbAboutOrbPulse {
+  0%, 100% { opacity: .7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+.kb-about-scope .hero-inner { position: relative; z-index: 2; padding: 100px 24px 80px; max-width: 720px; }
+.kb-about-scope .hero-brand {
+  display: inline-block; font-size: clamp(42px, 7vw, 72px); font-weight: 800;
+  line-height: 1.15; margin: 0 0 18px;
+  background: linear-gradient(135deg, #fff 40%, #ffb0bc);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.kb-about-scope .hero-lead {
+  font-size: clamp(20px, 3vw, 28px); font-weight: 700;
+  line-height: 1.55; margin: 0; color: rgba(255,255,255,.92);
+  max-width: 560px;
+}
+
+.kb-about-scope .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+.kb-about-scope .reveal.in { opacity: 1; transform: none; }
+.kb-about-scope .reveal.d1 { transition-delay: .08s; }
+.kb-about-scope .reveal.d2 { transition-delay: .16s; }
+.kb-about-scope .reveal.d3 { transition-delay: .24s; }
+@media (prefers-reduced-motion: reduce) {
+  .kb-about-scope .reveal { opacity: 1; transform: none; }
+  .kb-about-scope .hero-grid,
+  .kb-about-scope .hero-orb { animation: none; }
+}
+
+.kb-about-scope .section { padding: 90px 0; }
+.kb-about-scope .section-soft { background: var(--bg-soft); }
+.kb-about-scope .section-white { background: var(--white); }
+
+.kb-about-scope .eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #fbe7ea; color: var(--accent); font-weight: 700; font-size: 13px;
+  padding: 7px 16px; border-radius: 999px;
+}
+.kb-about-scope .eyebrow::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+.kb-about-scope .head { text-align: center; max-width: 640px; margin: 0 auto 48px; }
+.kb-about-scope .head h2 { font-size: clamp(26px, 3.4vw, 38px); font-weight: 800; line-height: 1.35; margin: 16px 0 12px; }
+.kb-about-scope .head p { color: var(--ink-soft); font-size: 16px; line-height: 1.9; margin: 0; }
+
+.kb-about-scope .story {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+}
+.kb-about-scope .story h2 {
+  font-size: clamp(24px, 3vw, 34px); font-weight: 800; line-height: 1.4; margin: 14px 0 16px;
+}
+.kb-about-scope .story p { color: var(--ink-soft); font-size: 15.5px; line-height: 1.95; margin: 0 0 14px; }
+.kb-about-scope .story p:last-child { margin-bottom: 0; }
+.kb-about-scope .story-visual {
+  position: relative; min-height: 320px; border-radius: 28px; overflow: hidden;
+  background:
+    radial-gradient(80% 70% at 70% 20%, rgba(179,18,46,.45), transparent 55%),
+    linear-gradient(145deg, #162033, #1a1520);
+}
+.kb-about-scope .story-visual span {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-size: clamp(36px, 5vw, 56px); font-weight: 800; color: rgba(255,255,255,.9);
+  letter-spacing: -.02em;
+}
+
+.kb-about-scope .pillars { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.kb-about-scope .pillar {
+  padding: 28px 26px;
+  border-bottom: 1px solid var(--line);
+}
+.kb-about-scope .pillar:nth-child(odd) { border-left: 1px solid var(--line); padding-left: 28px; }
+.kb-about-scope .pillar-num {
+  display: block; font-size: 13px; font-weight: 800; color: var(--accent); margin-bottom: 12px;
+}
+.kb-about-scope .pillar h3 { font-size: 18px; font-weight: 700; margin: 0 0 10px; }
+.kb-about-scope .pillar p { font-size: 14.5px; color: var(--ink-soft); line-height: 1.85; margin: 0; }
+
+.kb-about-scope .beliefs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.kb-about-scope .belief h3 { font-size: 17px; font-weight: 700; margin: 0 0 10px; }
+.kb-about-scope .belief p { font-size: 14.5px; color: var(--ink-soft); line-height: 1.85; margin: 0; }
+
+.kb-about-scope .cta {
+  background: linear-gradient(145deg, #162033, #1a1520);
+  border-radius: 28px; padding: 56px 48px; text-align: center; color: #fff;
+  position: relative; overflow: hidden;
+}
+.kb-about-scope .cta::after {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(50% 60% at 50% 0%, rgba(179,18,46,.35), transparent 70%);
+  pointer-events: none;
+}
+.kb-about-scope .cta > * { position: relative; z-index: 1; }
+.kb-about-scope .cta h2 { font-size: clamp(24px, 3vw, 34px); font-weight: 800; margin: 14px 0 16px; }
+.kb-about-scope .cta p { color: rgba(255,255,255,.62); max-width: 480px; margin: 0 auto 28px; font-size: 15.5px; line-height: 1.9; }
+.kb-about-scope .btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 28px; border-radius: 14px; font-weight: 700; font-size: 15px;
+  border: none; transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+}
+.kb-about-scope .btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: #fff; box-shadow: 0 14px 32px rgba(179,18,46,.35);
+}
+.kb-about-scope .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 20px 40px rgba(179,18,46,.45); }
+
+@media (max-width: 900px) {
+  .kb-about-scope .hero-inner { padding: 90px 32px 70px; }
+  .kb-about-scope .story { grid-template-columns: 1fr; gap: 32px; }
+  .kb-about-scope .story-visual { min-height: 220px; }
+  .kb-about-scope .pillars { grid-template-columns: 1fr; }
+  .kb-about-scope .pillar:nth-child(odd) { border-left: none; padding-left: 26px; }
+  .kb-about-scope .beliefs { grid-template-columns: 1fr; gap: 24px; }
+  .kb-about-scope .cta { padding: 44px 28px; }
+}
+</style>
+
+<section class="hero">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-orb" aria-hidden="true"></div>
+  <div class="wrap hero-inner">
+    <h1 class="hero-brand reveal">خوب‌بوک</h1>
+    <p class="hero-lead reveal d1">جایی که کتاب به ابزار رشد فرد، تیم و سازمان تبدیل می‌شود</p>
+  </div>
+</section>
+
+<section class="section section-white">
+  <div class="wrap">
+    <div class="story">
+      <div class="reveal">
+        <div class="eyebrow">داستان ما</div>
+        <h2>شریک سازمان‌ها در توسعه سرمایه انسانی</h2>
+        <p>خوب‌بوک شریک سازمان‌ها در توسعه سرمایه انسانی و بهبود همکاری تیم‌هاست. ما با ترکیب کتاب، بازی، گفت‌وگو و فناوری، راهکارهایی برای تقویت ارتباطات، افزایش انگیزه کارکنان و توسعه فرهنگ یادگیری طراحی و اجرا می‌کنیم.</p>
+        <p>از عارضه‌یابی و شناسایی مسئله تا راه‌اندازی کتابخانه سازمانی و سامانه خوب‌بوک بیزینس، کنار تیم‌ها می‌مانیم تا یادگیری به تغییر ملموس در رفتار و عملکرد تبدیل شود.</p>
+      </div>
+      <div class="story-visual reveal d1" aria-hidden="true">
+        <span>خوب‌بوک</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-soft">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eyebrow">چه می‌کنیم</div>
+      <h2>هرجایی که کتاب است، خوب‌بوک آنجاست</h2>
+      <p>راهکارهای تخصصی کتاب‌خوانی را متناسب با نیاز افراد، خانواده‌ها و سازمان‌ها فراهم می‌کنیم.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar reveal">
+        <span class="pillar-num">۰۱</span>
+        <h3>خوب‌بوک بیزینس</h3>
+        <p>عارضه‌یابی و حل چالش‌های منابع انسانی با راهکارهای کتاب‌محور، برنامه‌های توسعه تیمی و سامانه مدیریت دانش.</p>
+      </div>
+      <div class="pillar reveal d1">
+        <span class="pillar-num">۰۲</span>
+        <h3>خوب‌بوک جونیور</h3>
+        <p>رویدادهای تعاملی برای نوجوانان؛ تا مسیر مطالعه کوتاه‌تر، شادتر و انتخاب خود آن‌ها باشد.</p>
+      </div>
+      <div class="pillar reveal d2">
+        <span class="pillar-num">۰۳</span>
+        <h3>باشگاه‌های کتاب‌خوانی</h3>
+        <p>دورهمی‌های تخصصی مثل باشگاه مدیران و مافیای کتاب؛ جایی که کتاب به گفتگو و یادگیری متقابل تبدیل می‌شود.</p>
+      </div>
+      <div class="pillar reveal d3">
+        <span class="pillar-num">۰۴</span>
+        <h3>فروشگاه و کافه‌کتاب</h3>
+        <p>شعب حضوری تخصصی مدیریت و کسب‌وکار، کودک و نوجوان، و کافه‌کتاب برای تجربه متفاوت خرید و مطالعه.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-white">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eyebrow">باور ما</div>
+      <h2>یادگیری وقتی جمعی شود، عمیق‌تر می‌نشیند</h2>
+      <p>سه اصل که مسیر خوب‌بوک را شکل می‌دهد.</p>
+    </div>
+    <div class="beliefs">
+      <div class="belief reveal">
+        <h3>شناخت قبل از نسخه</h3>
+        <p>با شنیدن تجربه مدیران و کارکنان، گره‌های واقعی سازمان را پیدا می‌کنیم؛ نه راه‌حل‌های کلیشه‌ای.</p>
+      </div>
+      <div class="belief reveal d1">
+        <h3>کتاب به‌عنوان ابزار</h3>
+        <p>کتاب نقطه شروع است؛ بازی، گفتگو و فناوری آن را به تغییر رفتار و همکاری تبدیل می‌کنند.</p>
+      </div>
+      <div class="belief reveal d2">
+        <h3>همراهی تا نتیجه</h3>
+        <p>نتایج را می‌سنجیم، بازخورد می‌گیریم و مسیر را بهبود می‌دهیم تا یادگیری در عملکرد تیم بماند.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-soft" style="padding-top:40px">
+  <div class="wrap">
+    <div class="cta reveal">
+      <div class="eyebrow" style="background:rgba(255,255,255,.1);color:#ff8a9a">همراهی با خوب‌بوک</div>
+      <h2>می‌خواهید مسیر همکاری را شروع کنید؟</h2>
+      <p>با تیم خوب‌بوک گفتگو کنید؛ از مشاوره سازمانی تا عضویت در باشگاه‌ها و بازدید از شعب.</p>
+      <a href="kb-contact.html" class="btn btn-primary">
+        تماس با ما
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var root = document.currentScript ? document.currentScript.previousElementSibling : null;
+  while (root && !root.classList.contains('kb-about-scope')) {
+    root = root.previousElementSibling;
+  }
+  if (!root) root = document.querySelector('.kb-about-scope');
+  if (!root) return;
+
+  var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!prefersReduced && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    root.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+  } else {
+    root.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+  }
+})();
+</script>
+</div>
